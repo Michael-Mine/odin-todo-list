@@ -1,16 +1,22 @@
-const items = [];
+//array to iterate through
+const list1 = [];
 
-export function ToDoItem (list, title, description, dueDate, priority, done, notes) {
+export function toDoItem (list, title, description, dueDate, priority, done, notes) {
     return { list, title, description, dueDate, priority, done, notes }
 }
 
-const item2 = ToDoItem("my list", "cook dinner", "cooking dinner", "Sunday", "medium", "not-done", "45 mins");
+function addItem(newItem) {
+    list1.push(newItem)
+};
 
-console.log(item2);
+const item2 = toDoItem("my list", "cook dinner", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
+
+addItem(item2);
+
+console.log(list1);
 
 
-
-//rename function for list, title, description, notes
+//rename function for title, description, notes
 
 //change list function
 
@@ -19,8 +25,24 @@ console.log(item2);
 //change priority function
 
 //change done function
+function changeDone(toDoItem) {
+    if (toDoItem.done = "notDone") {
+        toDoItem.done = "done";
+    }
+    else {
+        toDoItem.done = "notDone";
+    }
+    // return toDoItem;
+};
+
+changeDone(item2);
+
+console.log(item2)
 
 //remove item function
 
 //add localStorage API - in separate module?
 
+
+// title        dueDate     done tickbox    edit button
+// description  priority    notes button    remove button (confirm)
