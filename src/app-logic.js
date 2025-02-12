@@ -1,19 +1,25 @@
 //array to iterate through
-const list1 = [];
+const itemList = [];
+
+let itemIndex = 0;
 
 export function toDoItem (list, title, description, dueDate, priority, done, notes) {
-    return { list, title, description, dueDate, priority, done, notes }
+    itemIndex += 1;
+    
+    return { list, title, description, dueDate, priority, done, notes, itemIndex }
 }
 
 function addItem(newItem) {
-    list1.push(newItem)
+    itemList.push(newItem)
 };
 
 const item2 = toDoItem("my list", "cook dinner", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
+const item3 = toDoItem("my list", "dishes", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
 
 addItem(item2);
+addItem(item3);
 
-console.log(list1);
+console.log(itemList);
 
 
 //rename function for title, description, notes
@@ -24,24 +30,28 @@ console.log(list1);
 
 //change priority function
 
-//change done function
-function changeDone(toDoItem) {
-    if (toDoItem.done = "notDone") {
-        toDoItem.done = "done";
-    }
-    else {
-        toDoItem.done = "notDone";
-    }
-    // return toDoItem;
-};
+function changeDone(item) {
+    item.done = "notDone" ? 
+    item.done = "done" : 
+    item.done = "notDone";
+}
 
 changeDone(item2);
 
-console.log(item2)
+function removeItem(item) {
+    let id = item.itemIndex;
+    let index = itemList.findIndex(element => element.itemIndex === id);
+    if (index !== -1) {
+        itemList.splice(index, 1);
+    }
+};
 
-//remove item function
+removeItem(item3);
+console.log(itemList);
 
 //add localStorage API - in separate module?
+
+
 
 
 // title        dueDate     done tickbox    edit button
