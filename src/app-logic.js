@@ -1,4 +1,5 @@
-//array to iterate through
+// comments for why not how
+// array to iterate through
 const itemList = [];
 
 let itemIndex = 0;
@@ -38,6 +39,7 @@ function changeDescription(item, newDescription) {
 function changeNotes(item, newNotes) {
     item.notes = newNotes;
 };
+
 function changeList(item, newList) {
     item.list = newList;
 };
@@ -50,6 +52,7 @@ function changeDone(item) {
     item.done === "notDone" ? item.done = "done" : item.done = "notDone";
 };
 
+// change functions to find in array - need to know how selected
 function removeItem(item) {
     let id = item.itemIndex;
     let index = itemList.findIndex(element => element.itemIndex === id);
