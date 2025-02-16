@@ -73,7 +73,6 @@
 
 .page-container {
     display: grid;
-    /* change to rem */
     grid-template-columns: 15rem 1fr;
     grid-template-rows: 4.5rem 100rem;
     grid-template-areas: 
@@ -98,18 +97,51 @@
 .side-bar {
     grid-area: side-bar;
     background-color: #DED4E6;
+    font-family: "Montserrat";
+}
+
+ul {
+    padding: 20px;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.side-bar button {
+    width: 12.5rem;
+    text-align: left;
+}
+
+.button-new {
+    width: 7.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
 }
 
 .main-content {
     grid-area: main;
-    background-color: #EEE9F2;
-    display: flex;
     padding: 1rem;
+    background-color: #EEE9F2;
+    font-family: "Lato";
+}
+
+.main-content h3 {
+    font-family: "Montserrat";
 }
 
 .main-content-item {
     height: 10rem;
-    background-color: #FFFFFF;
     padding: 1rem;
-    
+    background-color: #F9F9F9;
 }
+
+/* My CSS declaration Order
+    Positioning
+    Display
+    Colour
+    Text
+    Other */
