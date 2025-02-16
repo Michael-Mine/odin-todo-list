@@ -97,20 +97,19 @@
 
 .side-bar {
     grid-area: side-bar;
-    background-color: #9AC6C5;
+    background-color: #DED4E6;
 }
 
 .main-content {
     grid-area: main;
-    background-color: #7785AC;
-    color: #360568;
+    background-color: #EEE9F2;
     display: flex;
     padding: 1rem;
 }
 
 .main-content-item {
     height: 10rem;
-    background-color: #9AC6C5;
+    background-color: #FFFFFF;
     padding: 1rem;
     
 }
