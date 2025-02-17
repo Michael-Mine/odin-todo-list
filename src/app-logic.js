@@ -1,6 +1,17 @@
 // comments for why not how
 // array to iterate through
-const itemList = [];
+
+export let lists = []
+export let tasks = [];
+
+// let housework = {};
+// tasks.push(housework);
+
+// function addNewList(listName) {
+//     let newList = {};
+    
+// };
+
 
 let itemIndex = 0;
 
@@ -11,7 +22,7 @@ export function toDoItem (list, title, description, dueDate, priority, done, not
 }
 
 function addItem(newItem) {
-    itemList.push(newItem)
+    tasks.push(newItem)
 };
 
 const item2 = toDoItem("my list", "cook dinner", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
@@ -22,7 +33,7 @@ addItem(item3);
 
 function findItem(item) {
     let id = item.itemIndex;
-    let index = itemList.findIndex(element => element.itemIndex === id);
+    let index = tasks.findIndex(element => element.itemIndex === id);
     if (index !== -1) {
         return element.itemIndex;
     }
@@ -55,9 +66,9 @@ function changeDone(item) {
 // change functions to find in array - need to know how selected
 function removeItem(item) {
     let id = item.itemIndex;
-    let index = itemList.findIndex(element => element.itemIndex === id);
+    let index = tasks.findIndex(element => element.itemIndex === id);
     if (index !== -1) {
-        itemList.splice(index, 1);
+        tasks.splice(index, 1);
     } else {
         // change to alert for IU
         console.log("error: item not found to remove");
@@ -70,8 +81,8 @@ changeNotes(item2, "30 mins");
 changeList(item2, "chores");
 changePriority(item2, "high");
 changeDone(item2);
-removeItem(item3);
-console.log(itemList);
+// removeItem(item3);
+console.log(tasks);
 
 //change dueDate function - using api
 
