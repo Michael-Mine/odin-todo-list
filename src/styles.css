@@ -133,9 +133,12 @@ li {
     font-family: "Montserrat";
 }
 
-.tasks-item { 
+.tasks-container { 
     height: 10rem;
     padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 15rem);
+    grid-template-rows: repeat(2, 4.5rem);
     background-color: #F9F9F9;
 }
 

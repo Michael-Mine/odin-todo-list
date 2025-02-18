@@ -54,13 +54,46 @@ function displayTasks(item) {
         const newList = document.createElement("li");
         taskList.appendChild(newList);
 
-        const newDiv = document.createElement("div");
-        newDiv.textContent = "Hi";
-        newList.appendChild(newDiv);
+        const newContainerDiv = document.createElement("div");
+        newContainerDiv.classList.toggle("tasks-container");
+        newContainerDiv.textContent = item.title;
+        newList.appendChild(newContainerDiv);
 
+        const dueDate = document.createElement("div");
+        // titleDiv.classList.toggle("tasks-item");
+        dueDate.textContent = "Due: " + item.dueDate;
+        newContainerDiv.appendChild(dueDate);
 
+        const doneDiv = document.createElement("div");
+        // doneDiv.classList.toggle("tasks-item");
+        doneDiv.textContent = item.done;
+        newContainerDiv.appendChild(doneDiv);
+
+        const editDiv = document.createElement("div");
+        editDiv.textContent = "edit button"
+        newContainerDiv.appendChild(editDiv);
+
+        const descriptionDiv = document.createElement("div");
+        descriptionDiv.textContent = item.description;
+        newContainerDiv.appendChild(descriptionDiv);
+
+        const priorityDiv = document.createElement("div");
+        priorityDiv.textContent = "Priority: " + item.priority;
+        newContainerDiv.appendChild(priorityDiv);
+
+        const notesDiv = document.createElement("div");
+        notesDiv.textContent = "Notes button";
+        newContainerDiv.appendChild(notesDiv);
+
+        const removeDiv = document.createElement("div");
+        removeDiv.textContent = "remove button"
+        newContainerDiv.appendChild(removeDiv);
     }
 };
+
+// title        dueDate     done tickbox    edit button
+// description  priority    notes button    remove button (confirm)
+
 
 // add new list function to add new item in array, button
 

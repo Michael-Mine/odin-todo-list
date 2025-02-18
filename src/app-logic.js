@@ -79,8 +79,3 @@ console.log(tasks);
 
 //add localStorage API - in separate module?
 
-
-
-
-// title        dueDate     done tickbox    edit button
-// description  priority    notes button    remove button (confirm)
