@@ -4,15 +4,6 @@
 export let lists = []
 export let tasks = [];
 
-// let housework = {};
-// tasks.push(housework);
-
-// function addNewList(listName) {
-//     let newList = {};
-    
-// };
-
-
 let itemIndex = 0;
 
 //no methods to parse items to JSON for storage
@@ -25,7 +16,7 @@ function addItem(newItem) {
     tasks.push(newItem)
 };
 
-const item2 = toDoItem("my list", "cook dinner", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
+const item2 = toDoItem("Housework", "cook dinner", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
 const item3 = toDoItem("my list", "dishes", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
 
 addItem(item2);
