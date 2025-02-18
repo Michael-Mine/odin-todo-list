@@ -122,18 +122,18 @@ li {
     gap: 4px;
 }
 
-.main-content {
+.tasks {
     grid-area: main;
-    padding: 1rem;
+    padding: 2px;
     background-color: #EEE9F2;
     font-family: "Lato";
 }
 
-.main-content h3 {
+.tasks h3 {
     font-family: "Montserrat";
 }
 
-.main-content-item {
+.tasks-item { 
     height: 10rem;
     padding: 1rem;
     background-color: #F9F9F9;

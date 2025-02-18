@@ -43,15 +43,23 @@ function displayHeading(listName) {
     const heading = document.querySelector("#list-heading");
     heading.textContent = listName;
 }
+console.log(tasks)
 
 tasks.forEach(displayTasks);
 
-// display tasks (active task)
 function displayTasks(item) {
-    
+    if (item.list == activeList) {
+        const taskList = document.querySelector("#tasks-list");
 
-    // heading.textContent = item.list;
-    
+        const newList = document.createElement("li");
+        taskList.appendChild(newList);
+
+        const newDiv = document.createElement("div");
+        newDiv.textContent = "Hi";
+        newList.appendChild(newDiv);
+
+
+    }
 };
 
 // add new list function to add new item in array, button

@@ -69,7 +69,7 @@ function removeItem(item) {
 changeTitle(item2, "cook supper");
 changeDescription(item2, "cooking supper");
 changeNotes(item2, "30 mins");
-changeList(item2, "chores");
+changeList(item3, "Housework");
 changePriority(item2, "high");
 changeDone(item2);
 // removeItem(item3);
