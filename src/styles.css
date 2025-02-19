@@ -134,11 +134,10 @@ li {
 }
 
 .tasks-container { 
-    height: 10rem;
     padding: 1rem;
     display: grid;
-    grid-template-columns: repeat(4, 15rem);
-    grid-template-rows: repeat(2, 4.5rem);
+    grid-template-columns: 1fr repeat(3, 8rem);
+    grid-template-rows: repeat(2, 2rem);
     background-color: #F9F9F9;
 }
 

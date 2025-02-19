@@ -10,11 +10,22 @@
         <div class="header">
             <img src="images/list-box-outline.svg" alt="list logo" class="header-logo" height="50px" width="50px">
             <h1>To Do List</h1>
+            <!-- add my logo and github logo links -->
         </div>
         <div class="side-bar">
             <ul id="side-bar-lists">
                 <li>
-                    <button class="button-new">
+                    <dialog id="new-list-dialog">
+                        <form>
+                            <p>
+                                <label for="new-list-input">New List Name:</label>
+                                <input type="text" id="new-list-input" name="new-list-name">
+                            </p>
+                        </form>
+                        <button id="new-list-button-add">Add</button>
+                        <button id="new-list-button-cancel" formmethod="dialog">Cancel</button>
+                    </dialog>
+                    <button id="new-list-button-open" class="button-new">
                         New List
                         <img src="images/plus.svg" alt="plus icon" height="30px" width="30px">
                      </button>
