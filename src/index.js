@@ -88,13 +88,11 @@ function displayTasks (item) {
 // title        dueDate     done tickbox    edit button
 // description  priority    notes button    remove button (confirm)
 
-// add new list function to add new item in array, button
-
 const taskListItemButtonOpen = document.querySelector('#new-list-button-open');
+const taskListItemButtonCancel = document.querySelector('#new-list-button-cancel');
+const taskListItemButtonAdd = document.querySelector('#new-list-button-add');
 const taskListItemDialog = document.querySelector('#new-list-dialog');
 const taskListItemName = taskListItemDialog.querySelector('input');
-const taskListItemButtonAdd = document.querySelector('#new-list-button-add');
-const taskListItemButtonCancel = document.querySelector('#new-list-button-cancel');
 
 taskListItemButtonOpen.addEventListener('click', () => {
     taskListItemDialog.showModal();
@@ -121,9 +119,22 @@ function removeTasks () {
     taskList.replaceChildren(...taskListKeep);  
 };
 
-// add button to edit name of list and remove in sidebar? 
-
 // add modal or form for new task, display, save all lists to localStorage
+const newTaskButtonOpen = document.querySelector('#new-task-button-open');
+const newTaskButtonCancel = document.querySelector('#new-task-button-cancel');
+const newTaskButtonAdd = document.querySelector('#new-task-button-add');
+const newTaskDialog = document.querySelector('#new-task-dialog');
+
+
+
+
+newTaskButtonOpen.addEventListener('click', () => {
+    newTaskDialog.showModal();
+})
+
+newTaskButtonCancel.addEventListener('click', () => {
+    newTaskDialog.close();
+})
 
 // add buttons to edit
 

@@ -13,18 +13,18 @@
             <!-- add my logo and github logo links -->
         </div>
         <div class="side-bar">
+            <dialog id="new-list-dialog">
+                <form>
+                    <p>
+                        <label for="new-list-input">New List Name:</label>
+                        <input type="text" id="new-list-input" name="new-list-name">
+                    </p>
+                </form>
+                <button id="new-list-button-add">Add List</button>
+                <button id="new-list-button-cancel" formmethod="dialog">Cancel List</button>
+            </dialog>
             <ul id="side-bar-lists">
                 <li>
-                    <dialog id="new-list-dialog">
-                        <form>
-                            <p>
-                                <label for="new-list-input">New List Name:</label>
-                                <input type="text" id="new-list-input" name="new-list-name">
-                            </p>
-                        </form>
-                        <button id="new-list-button-add">Add</button>
-                        <button id="new-list-button-cancel" formmethod="dialog">Cancel</button>
-                    </dialog>
                     <button id="new-list-button-open" class="button-new">
                         <p>New List</p>
                         <img src="images/clipboard-plus-outline.svg" alt="new list icon" height="30px" width="30px">
@@ -33,9 +33,59 @@
             </ul>
         </div>
         <div class="tasks">
+            <dialog id="new-task-dialog">
+                <form>
+                    <p>
+                        <label for="new-task-name">New Task Name:</label>
+                        <input type="text" id="new-list-name" name="new-task-name">
+                    </p>
+                    <p>
+                        <label for="new-task-description">New Task Description:</label>
+                        <input type="text" id="new-list-description" name="new-list-description">
+                    </p>
+                    <p>
+                        <label for="new-task-due">New Task Due:</label>
+                        <input type="date" id="new-list-due" name="new-list-due">
+                    </p>
+                    <p>New Task Priority:</p>
+                    <div>
+                        <input type="radio" id="a" name="new-task-priority" value="a">
+                        <label for="a">A (highest)</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="b" name="new-task-priority" value="b">
+                        <label for="b">B</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="c" name="new-task-priority" value="c">
+                        <label for="d">C</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="d" name="new-task-priority" value="d">
+                        <label for="d">D</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="e" name="new-task-priority" value="e">
+                        <label for="e">E (lowest)</label>
+                    </div>
+                    <p>To Do or Done:</p>
+                    <div>
+                        <input type="radio" id="to-do" name="to-do-or-done" value="to-do">
+                        <label for="to-do">To Do</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="done" name="to-do-or-done" value="done">
+                        <label for="done">Done</label>
+                    </div>
+                    <p>Notes:</p>
+                    <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+                </form>
+                <button id="new-task-button-add">Add Task</button>
+                <button id="new-task-button-cancel" formmethod="dialog">Cancel Task</button>
+            </dialog>
             <ul id="tasks-list">
                 <li class="tasks-list-keep tasks-buttons">
-                    <button class="button-new">
+                    <button id="new-task-button-open" class="button-new">
                         <p>New Task</p> 
                         <img src="images/note-plus-outline.svg" alt="new task icon" height="30px" width="30px">
                     </button>
