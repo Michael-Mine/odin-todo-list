@@ -115,7 +115,7 @@ li {
 }
 
 .button-new {
-    width: 7.5rem;
+    width: 9.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -139,6 +139,11 @@ li {
     grid-template-columns: 1fr repeat(3, 8rem);
     grid-template-rows: repeat(2, 2rem);
     background-color: #F9F9F9;
+}
+
+.tasks-buttons {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* My CSS declaration Order
