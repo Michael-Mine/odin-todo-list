@@ -17,7 +17,7 @@ lists.forEach(displayLists);
 displayHeading(activeList);
 tasks.forEach(displayTasks);
 
-function displayLists(listName) {
+function displayLists (listName) {
     const listsNav = document.querySelector('#side-bar-lists');
     
     const listItem = document.createElement('li');
@@ -36,24 +36,24 @@ function displayLists(listName) {
     })
 };
 
-function displayHeading(listName) {
+function displayHeading (listName) {
     const heading = document.querySelector('#list-heading');
     heading.textContent = listName;
 }
 
 
 
-function displayTasks(item) {
+function displayTasks (item) {
     if (item.list == activeList) {
         const taskList = document.querySelector('#tasks-list');
 
-        const newList = document.createElement('li');
-        taskList.appendChild(newList);
+        const taskListItem = document.createElement('li');
+        taskList.appendChild(taskListItem);
 
         const newContainerDiv = document.createElement('div');
         newContainerDiv.classList.toggle('tasks-container');
         newContainerDiv.textContent = item.title;
-        newList.appendChild(newContainerDiv);
+        taskListItem.appendChild(newContainerDiv);
 
         const dueDate = document.createElement('div');
         dueDate.textContent = 'due on ' + item.dueDate;
@@ -90,36 +90,36 @@ function displayTasks(item) {
 
 // add new list function to add new item in array, button
 
-const newListButtonOpen = document.querySelector('#new-list-button-open');
-const newListDialog = document.querySelector('#new-list-dialog');
-const newListName = newListDialog.querySelector('input');
-const newListButtonAdd = document.querySelector('#new-list-button-add');
-const newListButtonCancel = document.querySelector('#new-list-button-cancel');
+const taskListItemButtonOpen = document.querySelector('#new-list-button-open');
+const taskListItemDialog = document.querySelector('#new-list-dialog');
+const taskListItemName = taskListItemDialog.querySelector('input');
+const taskListItemButtonAdd = document.querySelector('#new-list-button-add');
+const taskListItemButtonCancel = document.querySelector('#new-list-button-cancel');
 
-newListButtonOpen.addEventListener('click', () => {
-    newListDialog.showModal();
+taskListItemButtonOpen.addEventListener('click', () => {
+    taskListItemDialog.showModal();
 });
 
-newListButtonCancel.addEventListener('click', () => {
-    newListDialog.close();
+taskListItemButtonCancel.addEventListener('click', () => {
+    taskListItemDialog.close();
 });
 
-newListButtonAdd.addEventListener('click', (event) => {
+taskListItemButtonAdd.addEventListener('click', (event) => {
     event.preventDefault();
-    newListDialog.close(newListName.value);
-    lists.push(newListName.value);
-    activeList = newListName.value;
+    taskListItemDialog.close(taskListItemName.value);
+    lists.push(taskListItemName.value);
+    activeList = taskListItemName.value;
     // save lists, activeList
-    displayLists(newListName.value);
+    displayLists(taskListItemName.value);
     displayHeading(activeList);
     removeTasks()
 });
 
-function removeTasks() {
+function removeTasks () {
     const taskList = document.querySelector('#tasks-list');
-
-    
-}
+    const taskListKeep = document.querySelectorAll('.tasks-list-keep');
+    taskList.replaceChildren(...taskListKeep);  
+};
 
 // add button to edit name of list in sidebar? 
 
