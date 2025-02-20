@@ -121,7 +121,7 @@ function removeTasks () {
     taskList.replaceChildren(...taskListKeep);  
 };
 
-// add button to edit name of list in sidebar? 
+// add button to edit name of list and remove in sidebar? 
 
 // add modal or form for new task, display, save all lists to localStorage
 
