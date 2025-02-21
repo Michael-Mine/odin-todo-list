@@ -7,22 +7,22 @@ export let tasks = [];
 let itemIndex = 0;
 
 //no methods to parse items to JSON for storage
-export function toDoItem (list, title, description, dueDate, priority, done, notes) {
+export function createTask (list, title, description, dueDate, priority, done, notes) {
     itemIndex += 1;
     return { list, title, description, dueDate, priority, done, notes, itemIndex }
 }
 
-function addItem(newItem) {
+export function addTask(newItem) {
     tasks.push(newItem)
 };
 
-const item2 = toDoItem("Housework", "cook dinner", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
-const item3 = toDoItem("my list", "dishes", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
+const item2 = createTask("Housework", "cook dinner", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
+const item3 = createTask("my list", "dishes", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
 
-addItem(item2);
-addItem(item3);
+addTask(item2);
+addTask(item3);
 
-function findItem(item) {
+function findItem (item) {
     let id = item.itemIndex;
     let index = tasks.findIndex(element => element.itemIndex === id);
     if (index !== -1) {
@@ -30,32 +30,32 @@ function findItem(item) {
     }
 };
 
-function changeTitle(item, newTitle) {
+function changeTitle (item, newTitle) {
     item.title = newTitle;
 };
 
-function changeDescription(item, newDescription) {
+function changeDescription (item, newDescription) {
     item.description = newDescription;
 };
 
-function changeNotes(item, newNotes) {
+function changeNotes (item, newNotes) {
     item.notes = newNotes;
 };
 
-function changeList(item, newList) {
+function changeList (item, newList) {
     item.list = newList;
 };
 
-function changePriority(item, newPriority) {
+function changePriority (item, newPriority) {
     item.priority = newPriority;
 };
 
-function changeDone(item) {
+function changeDone (item) {
     item.done === "notDone" ? item.done = "done" : item.done = "notDone";
 };
 
 // change functions to find in array - need to know how selected
-function removeItem(item) {
+function removeItem (item) {
     let id = item.itemIndex;
     let index = tasks.findIndex(element => element.itemIndex === id);
     if (index !== -1) {

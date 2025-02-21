@@ -136,7 +136,7 @@ li {
 .tasks-container { 
     padding: 1rem;
     display: grid;
-    grid-template-columns: 1fr repeat(3, 8rem);
+    grid-template-columns: 1fr repeat(3, 9rem);
     grid-template-rows: repeat(2, 2rem);
     background-color: #F9F9F9;
 }

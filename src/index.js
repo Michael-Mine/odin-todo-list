@@ -1,5 +1,5 @@
 import './styles.css';
-import { lists, tasks, ToDoItem } from './app-logic';
+import { lists, tasks, createTask, addTask } from './app-logic';
 
 let activeList;
 
@@ -41,10 +41,8 @@ function displayHeading (listName) {
     heading.textContent = listName;
 }
 
-
-
-function displayTasks (item) {
-    if (item.list == activeList) {
+function displayTasks (task) {
+    if (task.list == activeList) {
         const taskList = document.querySelector('#tasks-list');
 
         const taskListItem = document.createElement('li');
@@ -52,15 +50,15 @@ function displayTasks (item) {
 
         const newContainerDiv = document.createElement('div');
         newContainerDiv.classList.toggle('tasks-container');
-        newContainerDiv.textContent = item.title;
+        newContainerDiv.textContent = task.title;
         taskListItem.appendChild(newContainerDiv);
 
         const dueDate = document.createElement('div');
-        dueDate.textContent = 'due on ' + item.dueDate;
+        dueDate.textContent = 'due on ' + task.dueDate;
         newContainerDiv.appendChild(dueDate);
 
         const doneDiv = document.createElement('div');
-        doneDiv.textContent = item.done;
+        doneDiv.textContent = task.done;
         newContainerDiv.appendChild(doneDiv);
 
         const editDiv = document.createElement('div');
@@ -68,11 +66,11 @@ function displayTasks (item) {
         newContainerDiv.appendChild(editDiv);
 
         const descriptionDiv = document.createElement('div');
-        descriptionDiv.textContent = item.description;
+        descriptionDiv.textContent = task.description;
         newContainerDiv.appendChild(descriptionDiv);
 
         const priorityDiv = document.createElement('div');
-        priorityDiv.textContent = item.priority + ' priority';
+        priorityDiv.textContent = 'priority: ' + task.priority;
         newContainerDiv.appendChild(priorityDiv);
 
         const notesDiv = document.createElement('div');
@@ -92,7 +90,6 @@ const taskListItemButtonOpen = document.querySelector('#new-list-button-open');
 const taskListItemButtonCancel = document.querySelector('#new-list-button-cancel');
 const taskListItemButtonAdd = document.querySelector('#new-list-button-add');
 const taskListItemDialog = document.querySelector('#new-list-dialog');
-const taskListItemName = taskListItemDialog.querySelector('input');
 
 taskListItemButtonOpen.addEventListener('click', () => {
     taskListItemDialog.showModal();
@@ -104,6 +101,7 @@ taskListItemButtonCancel.addEventListener('click', () => {
 
 taskListItemButtonAdd.addEventListener('click', (event) => {
     event.preventDefault();
+    const taskListItemName = taskListItemDialog.querySelector('input');
     taskListItemDialog.close(taskListItemName.value);
     lists.push(taskListItemName.value);
     activeList = taskListItemName.value;
@@ -119,23 +117,37 @@ function removeTasks () {
     taskList.replaceChildren(...taskListKeep);  
 };
 
-// add modal or form for new task, display, save all lists to localStorage
 const newTaskButtonOpen = document.querySelector('#new-task-button-open');
 const newTaskButtonCancel = document.querySelector('#new-task-button-cancel');
 const newTaskButtonAdd = document.querySelector('#new-task-button-add');
 const newTaskDialog = document.querySelector('#new-task-dialog');
 
-
-
-
 newTaskButtonOpen.addEventListener('click', () => {
     newTaskDialog.showModal();
-})
+});
 
 newTaskButtonCancel.addEventListener('click', () => {
     newTaskDialog.close();
-})
+});
 
-// add buttons to edit
+newTaskButtonAdd.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const newTaskName = newTaskDialog.querySelector('input[name="new-task-name"]');
+    const newTaskDescription = newTaskDialog.querySelector('input[name="new-task-description"]');
+    const newTaskDue = newTaskDialog.querySelector('input[name="new-task-due"]');
+    const newTaskPriority = newTaskDialog.querySelector('input[name="new-task-priority"]:checked');
+    const newTaskToDoOrDone = newTaskDialog.querySelector('input[name="to-do-or-done"]:checked');
+    const newTaskNotes = newTaskDialog.querySelector('textarea');
+
+    let newTask = createTask(activeList, newTaskName.value, newTaskDescription.value, newTaskDue.value, newTaskPriority.value, newTaskToDoOrDone.value, newTaskNotes.value);
+    
+    addTask(newTask);
+    displayTasks(newTask);
+    // save tasks
+    newTaskDialog.close();
+});
+
+// add buttons to edit tasks
 
 // left colour border for priority 
