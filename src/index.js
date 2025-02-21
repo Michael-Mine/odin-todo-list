@@ -61,23 +61,35 @@ function displayTasks (task) {
         taskListItem.appendChild(newContainerDiv);
 
         const dueDate = document.createElement('div');
-        dueDate.textContent = 'due on ' + task.dueDate;
+        dueDate.textContent = 'Due on: ' + task.dueDate;
         newContainerDiv.appendChild(dueDate);
 
         const doneDiv = document.createElement('div');
         doneDiv.textContent = task.done;
         newContainerDiv.appendChild(doneDiv);
 
+        if (task.done == "Done") {
+            newContainerDiv.classList.toggle('tasks-container-done');
+        }
+
         const editDiv = document.createElement('div');
-        editDiv.textContent = 'edit button'
         newContainerDiv.appendChild(editDiv);
+
+        const editButton = document.createElement('button');
+        editButton.classList.toggle('tasks-buttons-notes');
+        editButton.textContent = 'Edit';
+        editDiv.appendChild(editButton);
+
+        const noteIconEditAdd = document.createElement('img');
+        noteIconEditAdd.src = noteIconEdit;
+        editButton.appendChild(noteIconEditAdd);
 
         const descriptionDiv = document.createElement('div');
         descriptionDiv.textContent = task.description;
         newContainerDiv.appendChild(descriptionDiv);
 
         const priorityDiv = document.createElement('div');
-        priorityDiv.textContent = 'priority: ' + task.priority;
+        priorityDiv.textContent = 'Priority: ' + task.priority;
         newContainerDiv.appendChild(priorityDiv);
 
         const notesDiv = document.createElement('div');
@@ -93,8 +105,17 @@ function displayTasks (task) {
         notesButton.appendChild(noteIconAdd);
 
         const removeDiv = document.createElement('div');
-        removeDiv.textContent = 'remove button'
         newContainerDiv.appendChild(removeDiv);
+
+        const removeButton = document.createElement('button');
+        removeButton.classList.toggle('tasks-buttons-notes');
+        removeButton.textContent = 'Remove';
+        removeDiv.appendChild(removeButton);
+
+        const noteIconRemoveAdd = document.createElement('img');
+        noteIconRemoveAdd.src = noteIconRemove;
+        removeButton.appendChild(noteIconRemoveAdd);
+        
     }
 };
 

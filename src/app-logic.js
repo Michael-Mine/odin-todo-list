@@ -16,8 +16,8 @@ export function addTask(newItem) {
     tasks.push(newItem)
 };
 
-const item2 = createTask("Housework", "cook dinner", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
-const item3 = createTask("my list", "dishes", "cooking dinner", "Sunday", "medium", "notDone", "45 mins");
+const item2 = createTask("Housework", "cook dinner", "cooking dinner", "Sunday", "A", "To Do", "45 mins");
+const item3 = createTask("my list", "dishes", "cooking dinner", "Sunday", "B", "To Do", "45 mins");
 
 addTask(item2);
 addTask(item3);
@@ -51,7 +51,7 @@ function changePriority (item, newPriority) {
 };
 
 function changeDone (item) {
-    item.done === "notDone" ? item.done = "done" : item.done = "notDone";
+    item.done === "To Do" ? item.done = "Done" : item.done = "To Do";
 };
 
 // change functions to find in array - need to know how selected

@@ -141,6 +141,10 @@ li {
     background-color: #F9F9F9;
 }
 
+.tasks-container-done {
+  background-color:#EEE9F2;
+}
+
 .tasks-buttons-top {
   display: flex;
   justify-content: space-between;
