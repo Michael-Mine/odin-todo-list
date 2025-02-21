@@ -141,7 +141,14 @@ li {
     background-color: #F9F9F9;
 }
 
-.tasks-buttons {
+.tasks-buttons-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tasks-buttons-notes {
+  width: 7rem;
+  height: 2rem;
   display: flex;
   justify-content: space-between;
 }

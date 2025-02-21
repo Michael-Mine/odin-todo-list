@@ -1,5 +1,12 @@
 import './styles.css';
+import listIcon from './images/clipboard-outline.svg';
+import listIconCheck from './images/clipboard-check-outline.svg'
+import noteIcon from './images/note-outline.svg'
+import noteIconEdit from './images/note-edit-outline.svg'
+import noteIconCheck from './images/note-check-outline.svg'
+import noteIconRemove from './images/note-remove-outline.svg'
 import { lists, tasks, createTask, addTask } from './app-logic';
+
 
 let activeList;
 
@@ -74,8 +81,16 @@ function displayTasks (task) {
         newContainerDiv.appendChild(priorityDiv);
 
         const notesDiv = document.createElement('div');
-        notesDiv.textContent = 'Notes button';
         newContainerDiv.appendChild(notesDiv);
+
+        const notesButton = document.createElement('button');
+        notesButton.classList.toggle('tasks-buttons-notes');
+        notesButton.textContent = 'Notes';
+        notesDiv.appendChild(notesButton);
+
+        const noteIconAdd = document.createElement('img');
+        noteIconAdd.src = noteIcon;
+        notesButton.appendChild(noteIconAdd);
 
         const removeDiv = document.createElement('div');
         removeDiv.textContent = 'remove button'
@@ -149,5 +164,9 @@ newTaskButtonAdd.addEventListener('click', (event) => {
 });
 
 // add buttons to edit tasks
+
+// add npm date-fns
+
+// add localStorage
 
 // left colour border for priority 
