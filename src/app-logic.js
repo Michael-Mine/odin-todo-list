@@ -26,6 +26,9 @@ export function checkItemDone (item) {
     return item.done == "Done";
 };
 
+export function changeDone (item) {
+    item.done === "To Do" ? item.done = "Done" : item.done = "To Do";
+};
 
 function findItem (item) {
     let id = item.itemIndex;
@@ -55,9 +58,6 @@ function changePriority (item, newPriority) {
     item.priority = newPriority;
 };
 
-function changeDone (item) {
-    item.done === "To Do" ? item.done = "Done" : item.done = "To Do";
-};
 
 // change functions to find in array - need to know how selected
 function removeItem (item) {

@@ -5,7 +5,7 @@ import noteIcon from './images/note-outline.svg'
 import noteIconEdit from './images/note-edit-outline.svg'
 import noteIconCheck from './images/note-check-outline.svg'
 import noteIconRemove from './images/note-remove-outline.svg'
-import { lists, tasks, createTask, addTask, checkItemDone } from './app-logic';
+import { lists, tasks, createTask, addTask, checkItemDone, changeDone } from './app-logic';
 
 let activeList;
 
@@ -99,7 +99,11 @@ function displayTasks (task) {
         }
 
         doneButton.addEventListener('click', () => {
-            console.log('click')
+            changeDone(task);
+            // save tasks to localStorage
+            console.log(tasks);
+            removeTasks();
+            tasks.forEach(displayTasks);  
         });
 
         const editDiv = document.createElement('div');
