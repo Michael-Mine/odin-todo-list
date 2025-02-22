@@ -107,7 +107,6 @@ function displayTasks (task) {
         doneButton.addEventListener('click', () => {
             changeDone(task);
             // save tasks to localStorage
-            console.log(tasks);
             removeTasks();
             tasks.forEach(displayTasks);
             removeList();
@@ -150,8 +149,21 @@ function displayTasks (task) {
         noteIconAdd.src = noteIcon;
         notesButton.appendChild(noteIconAdd);
 
+        const notesDialog = document.querySelector('#notes-dialog');
+        const notesDialogTitle = document.querySelector('#notes-title');
+        const notesDialogNotes = document.querySelector('#notes-p');
+        const notesDialogClose = document.querySelector('#notes-button-close');
+
         notesButton.addEventListener('click', () => {
-            console.log('click')
+            notesDialogTitle.textContent = task.title + ' notes:';
+            notesDialogNotes.textContent = task.notes;
+            notesDialog.showModal();
+        });
+
+        notesDialogClose.addEventListener('click', () => {
+            notesDialogTitle.textContent = "";
+            notesDialogNotes.textContent = "";
+            notesDialog.close();
         });
 
         const removeDiv = document.createElement('div');
