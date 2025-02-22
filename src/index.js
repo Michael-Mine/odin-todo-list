@@ -61,6 +61,12 @@ function displayLists (listName) {
     })
 };
 
+function removeList () {
+    const listsNav = document.querySelector('#side-bar-lists');
+    const listsNavKeep = document.querySelectorAll('.list-keep');
+    listsNav.replaceChildren(...listsNavKeep);  
+};
+
 function displayHeading (listName) {
     const heading = document.querySelector('#list-heading');
     heading.textContent = listName;
@@ -103,7 +109,9 @@ function displayTasks (task) {
             // save tasks to localStorage
             console.log(tasks);
             removeTasks();
-            tasks.forEach(displayTasks);  
+            tasks.forEach(displayTasks);
+            removeList();
+            lists.forEach(displayLists);
         });
 
         const editDiv = document.createElement('div');
