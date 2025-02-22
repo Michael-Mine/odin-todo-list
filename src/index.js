@@ -5,8 +5,7 @@ import noteIcon from './images/note-outline.svg'
 import noteIconEdit from './images/note-edit-outline.svg'
 import noteIconCheck from './images/note-check-outline.svg'
 import noteIconRemove from './images/note-remove-outline.svg'
-import { lists, tasks, createTask, addTask } from './app-logic';
-
+import { lists, tasks, createTask, addTask, checkItemDone } from './app-logic';
 
 let activeList;
 
@@ -31,8 +30,27 @@ function displayLists (listName) {
     listsNav.appendChild(listItem);
 
     const listItemButton = document.createElement('button');
+    listItemButton.classList.toggle('tasks-buttons-notes');
     listItemButton.textContent = listName;
     listItem.appendChild(listItemButton);
+
+    const listIconAdd = document.createElement('img');
+    listIconAdd.src = listIcon;
+
+    const listIconCheckAdd = document.createElement('img');
+    listIconCheckAdd.src = listIconCheck;
+
+    if (tasks
+        .filter((item) => item.list == activeList)
+        .every(checkItemDone)) {
+        listItemButton.appendChild(listIconCheckAdd);
+    } else {
+        listItemButton.appendChild(listIconAdd);
+    }
+
+    const a = tasks
+        .filter((item) => item.list == activeList)
+        .every(checkItemDone)
 
     listItemButton.addEventListener('click', () => {
         activeList = listName;

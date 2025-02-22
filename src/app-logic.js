@@ -1,8 +1,8 @@
 // comments for why not how
 // array to iterate through
 
-export let lists = []
-export let tasks = [];
+export const lists = []
+export const tasks = [];
 
 let itemIndex = 0;
 
@@ -16,11 +16,16 @@ export function addTask(newItem) {
     tasks.push(newItem)
 };
 
-const item2 = createTask("Housework", "cook dinner", "cooking dinner", "Sunday", "A", "To Do", "45 mins");
-const item3 = createTask("my list", "dishes", "cooking dinner", "Sunday", "B", "To Do", "45 mins");
+const item2 = createTask("Housework", "cook dinner", "cooking dinner", "Sunday", "A", "Done", "45 mins");
+const item3 = createTask("my list", "dishes", "cooking dinner", "Sunday", "B", "Done", "45 mins");
 
 addTask(item2);
 addTask(item3);
+
+export function checkItemDone (item) {
+    return item.done == "Done";
+};
+
 
 function findItem (item) {
     let id = item.itemIndex;
