@@ -83,12 +83,24 @@ function displayTasks (task) {
         newContainerDiv.appendChild(dueDate);
 
         const doneDiv = document.createElement('div');
-        doneDiv.textContent = task.done;
         newContainerDiv.appendChild(doneDiv);
+
+        const doneButton = document.createElement('button');
+        doneButton.classList.toggle('tasks-buttons-notes');
+        doneButton.textContent = task.done;
+        doneDiv.appendChild(doneButton);
+
+        const noteIconCheckAdd = document.createElement('img');
+        noteIconCheckAdd.src = noteIconCheck;
+        doneButton.appendChild(noteIconCheckAdd);
 
         if (task.done == "Done") {
             newContainerDiv.classList.toggle('tasks-container-done');
         }
+
+        doneButton.addEventListener('click', () => {
+            console.log('click')
+        });
 
         const editDiv = document.createElement('div');
         newContainerDiv.appendChild(editDiv);
@@ -101,6 +113,10 @@ function displayTasks (task) {
         const noteIconEditAdd = document.createElement('img');
         noteIconEditAdd.src = noteIconEdit;
         editButton.appendChild(noteIconEditAdd);
+
+        editButton.addEventListener('click', () => {
+            console.log('click')
+        });
 
         const descriptionDiv = document.createElement('div');
         descriptionDiv.textContent = task.description;
@@ -122,6 +138,10 @@ function displayTasks (task) {
         noteIconAdd.src = noteIcon;
         notesButton.appendChild(noteIconAdd);
 
+        notesButton.addEventListener('click', () => {
+            console.log('click')
+        });
+
         const removeDiv = document.createElement('div');
         newContainerDiv.appendChild(removeDiv);
 
@@ -133,6 +153,10 @@ function displayTasks (task) {
         const noteIconRemoveAdd = document.createElement('img');
         noteIconRemoveAdd.src = noteIconRemove;
         removeButton.appendChild(noteIconRemoveAdd);
+
+        removeButton.addEventListener('click', () => {
+            console.log('click')
+        });
         
     }
 };
@@ -201,8 +225,6 @@ newTaskButtonAdd.addEventListener('click', (event) => {
     // save tasks
     newTaskDialog.close();
 });
-
-// add buttons to edit tasks
 
 // add npm date-fns
 
