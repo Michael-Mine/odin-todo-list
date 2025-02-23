@@ -5,7 +5,7 @@ import noteIcon from './images/note-outline.svg'
 import noteIconEdit from './images/note-edit-outline.svg'
 import noteIconCheck from './images/note-check-outline.svg'
 import noteIconRemove from './images/note-remove-outline.svg'
-import { lists, tasks, createTask, addTask, checkItemDone, changeDone } from './app-logic';
+import { lists, tasks, createTask, addTask, checkItemDone, changeDone, removeItem } from './app-logic';
 
 let activeList;
 
@@ -113,21 +113,41 @@ function displayTasks (task) {
             lists.forEach(displayLists);
         });
 
-        const editDiv = document.createElement('div');
-        newContainerDiv.appendChild(editDiv);
+        const removeDiv = document.createElement('div');
+        newContainerDiv.appendChild(removeDiv);
 
-        const editButton = document.createElement('button');
-        editButton.classList.toggle('tasks-buttons-notes');
-        editButton.textContent = 'Edit';
-        editDiv.appendChild(editButton);
+        const removeButton = document.createElement('button');
+        removeButton.classList.toggle('tasks-buttons-notes');
+        removeButton.textContent = 'Remove';
+        removeDiv.appendChild(removeButton);
 
-        const noteIconEditAdd = document.createElement('img');
-        noteIconEditAdd.src = noteIconEdit;
-        editButton.appendChild(noteIconEditAdd);
+        const noteIconRemoveAdd = document.createElement('img');
+        noteIconRemoveAdd.src = noteIconRemove;
+        removeButton.appendChild(noteIconRemoveAdd);
 
-        editButton.addEventListener('click', () => {
-            console.log('click')
+        const removeDialog = document.querySelector('#remove-dialog');
+        const removeDialogTitle = document.querySelector('#remove-dialog-title');
+        const removeDialogCancel = document.querySelector('#remove-dialog-button-cancel');
+        const removeDialogConfirm = document.querySelector('#remove-dialog-button-confirm');
+
+        removeButton.addEventListener('click', () => {
+            removeDialogTitle.textContent = 'Are you sure you want to remove: ' + task.title + '?'
+            removeDialog.showModal();
         });
+
+        removeDialogCancel.addEventListener('click', () => {
+            removeDialogTitle.textContent = '';
+            removeDialog.close();
+        })
+
+        removeDialogConfirm.addEventListener('click', () => {
+            removeItem(task);
+            console.log(tasks);
+            // save tasks to localStorage
+            // removeTasks();
+            // tasks.forEach(displayTasks);
+            removeDialog.close();
+        })
 
         const descriptionDiv = document.createElement('div');
         descriptionDiv.textContent = task.description;
@@ -166,21 +186,23 @@ function displayTasks (task) {
             notesDialog.close();
         });
 
-        const removeDiv = document.createElement('div');
-        newContainerDiv.appendChild(removeDiv);
+        const editDiv = document.createElement('div');
+        newContainerDiv.appendChild(editDiv);
 
-        const removeButton = document.createElement('button');
-        removeButton.classList.toggle('tasks-buttons-notes');
-        removeButton.textContent = 'Remove';
-        removeDiv.appendChild(removeButton);
+        const editButton = document.createElement('button');
+        editButton.classList.toggle('tasks-buttons-notes');
+        editButton.textContent = 'Edit';
+        editDiv.appendChild(editButton);
 
-        const noteIconRemoveAdd = document.createElement('img');
-        noteIconRemoveAdd.src = noteIconRemove;
-        removeButton.appendChild(noteIconRemoveAdd);
+        const noteIconEditAdd = document.createElement('img');
+        noteIconEditAdd.src = noteIconEdit;
+        editButton.appendChild(noteIconEditAdd);
 
-        removeButton.addEventListener('click', () => {
+        editButton.addEventListener('click', () => {
             console.log('click')
         });
+
+
         
     }
 };
