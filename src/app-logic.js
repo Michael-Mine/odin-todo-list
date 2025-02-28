@@ -30,21 +30,24 @@ export function changeDone (item) {
     item.done === "To Do" ? item.done = "Done" : item.done = "To Do";
 };
 
-// change functions to find in array - need to know how selected
 export function removeItem (item) {
     let id = item.itemIndex;
     let index = tasks.findIndex((element) => element.itemIndex === id);
-    if (index !== -1) {
-        tasks.splice(index, 1);
+    if (index >= 0) {
+        tasks.splice(index, 1); 
     } else {
         // change to alert for IU
         console.log("error: item not found to remove");
-    }
+    } 
 };
+
+// removeItem(tasks[1])
 
 function findItem (item) {
     let id = item.itemIndex;
+    
     let index = tasks.findIndex(element => element.itemIndex === id);
+    
     if (index !== -1) {
         return element.itemIndex;
     }
@@ -76,7 +79,7 @@ changeTitle(item2, "cook supper");
 changeDescription(item2, "cooking supper");
 changeNotes(item2, "30 mins");
 changeList(item3, "Housework");
-changePriority(item2, "high");
+// changePriority(item2, "high");
 // changeDone(item2);
 // removeItem(item3);
 console.log(tasks);

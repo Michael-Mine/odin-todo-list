@@ -125,29 +125,14 @@ function displayTasks (task) {
         noteIconRemoveAdd.src = noteIconRemove;
         removeButton.appendChild(noteIconRemoveAdd);
 
-        const removeDialog = document.querySelector('#remove-dialog');
-        const removeDialogTitle = document.querySelector('#remove-dialog-title');
-        const removeDialogCancel = document.querySelector('#remove-dialog-button-cancel');
-        const removeDialogConfirm = document.querySelector('#remove-dialog-button-confirm');
+        // const removeDialogConfirmAdd = document.createElement('button');
+        // removeDialogConfirmAdd.textContent = "Delete Me"
+        // removeDialog.appendChild(removeDialogConfirmAdd); 
 
         removeButton.addEventListener('click', () => {
-            removeDialogTitle.textContent = 'Are you sure you want to remove: ' + task.title + '?'
-            removeDialog.showModal();
+            openRemoveDialog(task)
+            
         });
-
-        removeDialogCancel.addEventListener('click', () => {
-            removeDialogTitle.textContent = '';
-            removeDialog.close();
-        })
-
-        removeDialogConfirm.addEventListener('click', () => {
-            removeItem(task);
-            console.log(tasks);
-            // save tasks to localStorage
-            // removeTasks();
-            // tasks.forEach(displayTasks);
-            removeDialog.close();
-        })
 
         const descriptionDiv = document.createElement('div');
         descriptionDiv.textContent = task.description;
@@ -201,15 +186,36 @@ function displayTasks (task) {
         editButton.addEventListener('click', () => {
             console.log('click')
         });
-
-
-        
     }
 };
+// move to new module?
+const removeDialog = document.querySelector('#remove-dialog');
+const removeDialogTitle = document.querySelector('#remove-dialog-title');
+const removeDialogCancel = document.querySelector('#remove-dialog-button-cancel');
+const removeDialogConfirm = document.querySelector('#remove-dialog-button-confirm');
+
+function openRemoveDialog (task) {
+    removeDialogTitle.textContent = 'Are you sure you want to remove: ' + task.title + '?'
+    removeDialog.showModal();
+
+    removeDialogConfirm.addEventListener('click', () => {
+        removeItem(task); 
+        // save tasks to localStorage
+        removeTasks();
+        tasks.forEach(displayTasks);
+        removeDialog.close();
+    })
+}
+
+removeDialogCancel.addEventListener('click', () => {
+    removeDialogTitle.textContent = '';
+    removeDialog.close();
+})
 
 // title        dueDate     done tickbox    edit button
 // description  priority    notes button    remove button (confirm)
 
+// separate module?
 const taskListItemButtonOpen = document.querySelector('#new-list-button-open');
 const taskListItemButtonCancel = document.querySelector('#new-list-button-cancel');
 const taskListItemButtonAdd = document.querySelector('#new-list-button-add');
@@ -241,6 +247,7 @@ function removeTasks () {
     taskList.replaceChildren(...taskListKeep);  
 };
 
+// separate module?
 const newTaskButtonOpen = document.querySelector('#new-task-button-open');
 const newTaskButtonCancel = document.querySelector('#new-task-button-cancel');
 const newTaskButtonAdd = document.querySelector('#new-task-button-add');
