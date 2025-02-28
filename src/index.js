@@ -5,7 +5,8 @@ import noteIcon from './images/note-outline.svg'
 import noteIconEdit from './images/note-edit-outline.svg'
 import noteIconCheck from './images/note-check-outline.svg'
 import noteIconRemove from './images/note-remove-outline.svg'
-import { lists, tasks, createTask, addTask, checkItemDone, changeDone, removeItem } from './app-logic';
+import { lists, tasks, createTask, addTask, checkItemDone, changeDone } from './app-logic';
+import { removeList, openRemoveDialog, removeTasks } from './dom-remove'
 
 let activeList;
 
@@ -61,18 +62,12 @@ function displayLists (listName) {
     })
 };
 
-function removeList () {
-    const listsNav = document.querySelector('#side-bar-lists');
-    const listsNavKeep = document.querySelectorAll('.list-keep');
-    listsNav.replaceChildren(...listsNavKeep);  
-};
-
 function displayHeading (listName) {
     const heading = document.querySelector('#list-heading');
     heading.textContent = listName;
 }
 
-function displayTasks (task) {
+export function displayTasks (task) {
     if (task.list == activeList) {
         const taskList = document.querySelector('#tasks-list');
 
@@ -104,6 +99,7 @@ function displayTasks (task) {
             newContainerDiv.classList.toggle('tasks-container-done');
         }
 
+        // move to dom-change module?
         doneButton.addEventListener('click', () => {
             changeDone(task);
             // save tasks to localStorage
@@ -154,6 +150,7 @@ function displayTasks (task) {
         noteIconAdd.src = noteIcon;
         notesButton.appendChild(noteIconAdd);
 
+        //move to dom-change module?
         const notesDialog = document.querySelector('#notes-dialog');
         const notesDialogTitle = document.querySelector('#notes-title');
         const notesDialogNotes = document.querySelector('#notes-p');
@@ -184,38 +181,16 @@ function displayTasks (task) {
         editButton.appendChild(noteIconEditAdd);
 
         editButton.addEventListener('click', () => {
+            // function to dom-change module?
             console.log('click')
         });
     }
 };
-// move to new module?
-const removeDialog = document.querySelector('#remove-dialog');
-const removeDialogTitle = document.querySelector('#remove-dialog-title');
-const removeDialogCancel = document.querySelector('#remove-dialog-button-cancel');
-const removeDialogConfirm = document.querySelector('#remove-dialog-button-confirm');
-
-function openRemoveDialog (task) {
-    removeDialogTitle.textContent = 'Are you sure you want to remove: ' + task.title + '?'
-    removeDialog.showModal();
-
-    removeDialogConfirm.addEventListener('click', () => {
-        removeItem(task); 
-        // save tasks to localStorage
-        removeTasks();
-        tasks.forEach(displayTasks);
-        removeDialog.close();
-    })
-}
-
-removeDialogCancel.addEventListener('click', () => {
-    removeDialogTitle.textContent = '';
-    removeDialog.close();
-})
 
 // title        dueDate     done tickbox    edit button
 // description  priority    notes button    remove button (confirm)
 
-// separate module?
+// separate dom-add module?
 const taskListItemButtonOpen = document.querySelector('#new-list-button-open');
 const taskListItemButtonCancel = document.querySelector('#new-list-button-cancel');
 const taskListItemButtonAdd = document.querySelector('#new-list-button-add');
@@ -241,13 +216,8 @@ taskListItemButtonAdd.addEventListener('click', (event) => {
     removeTasks()
 });
 
-function removeTasks () {
-    const taskList = document.querySelector('#tasks-list');
-    const taskListKeep = document.querySelectorAll('.tasks-list-keep');
-    taskList.replaceChildren(...taskListKeep);  
-};
 
-// separate module?
+// separate dom-add module?
 const newTaskButtonOpen = document.querySelector('#new-task-button-open');
 const newTaskButtonCancel = document.querySelector('#new-task-button-cancel');
 const newTaskButtonAdd = document.querySelector('#new-task-button-add');
