@@ -7,6 +7,12 @@ export function removeListsDisplay () {
     listsNav.replaceChildren(...listsNavKeep);  
 };
 
+export function removeTasksDisplay () {
+    const taskList = document.querySelector('#tasks-list');
+    const taskListKeep = document.querySelectorAll('.tasks-list-keep');
+    taskList.replaceChildren(...taskListKeep);  
+};
+
 const removeDialog = document.querySelector('#remove-dialog');
 const removeDialogTitle = document.querySelector('#remove-dialog-title');
 const removeDialogCancel = document.querySelector('#remove-dialog-button-cancel');
@@ -19,7 +25,7 @@ export function openRemoveDialog (task) {
     removeDialogConfirm.addEventListener('click', () => {
         removeItem(task); 
         // save tasks to localStorage
-        removeTasks();
+        removeTasksDisplay();
         tasks.forEach(displayTasks);
         removeDialog.close();
     })
@@ -29,9 +35,3 @@ removeDialogCancel.addEventListener('click', () => {
     removeDialogTitle.textContent = '';
     removeDialog.close();
 })
-
-export function removeTasksDisplay () {
-    const taskList = document.querySelector('#tasks-list');
-    const taskListKeep = document.querySelectorAll('.tasks-list-keep');
-    taskList.replaceChildren(...taskListKeep);  
-};

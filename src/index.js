@@ -5,8 +5,8 @@ import noteIcon from './images/note-outline.svg';
 import noteIconEdit from './images/note-edit-outline.svg';
 import noteIconCheck from './images/note-check-outline.svg';
 import noteIconRemove from './images/note-remove-outline.svg';
-import { lists, tasks, createTask, addTask, checkItemDone, changeDone } from './app-logic';
-import { openNewListDialog } from './dom-add';
+import { lists, tasks, checkItemDone, changeDone } from './app-logic';
+import { openNewListDialog, openNewTaskDialog } from './dom-add';
 import { removeListsDisplay, openRemoveDialog, removeTasksDisplay } from './dom-remove';
 
 let activeList;
@@ -30,11 +30,14 @@ displayHeading(activeList);
 tasks.forEach(displayTasks);
 
 const newListItemButtonOpen = document.querySelector('#new-list-button-open');
+const newTaskButtonOpen = document.querySelector('#new-task-button-open');
 
 newListItemButtonOpen.addEventListener('click', () => {
     openNewListDialog();
-    console.log('click');
-    
+});
+
+newTaskButtonOpen.addEventListener('click', () => {
+    openNewTaskDialog(activeList)
 });
 
 export function displayLists (listName) {
@@ -198,36 +201,8 @@ export function displayTasks (task) {
 
 
 // separate dom-add module?
-const newTaskButtonOpen = document.querySelector('#new-task-button-open');
-const newTaskButtonCancel = document.querySelector('#new-task-button-cancel');
-const newTaskButtonAdd = document.querySelector('#new-task-button-add');
-const newTaskDialog = document.querySelector('#new-task-dialog');
 
-newTaskButtonOpen.addEventListener('click', () => {
-    newTaskDialog.showModal();
-});
 
-newTaskButtonCancel.addEventListener('click', () => {
-    newTaskDialog.close();
-});
-
-newTaskButtonAdd.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    const newTaskName = newTaskDialog.querySelector('input[name="new-task-name"]');
-    const newTaskDescription = newTaskDialog.querySelector('input[name="new-task-description"]');
-    const newTaskDue = newTaskDialog.querySelector('input[name="new-task-due"]');
-    const newTaskPriority = newTaskDialog.querySelector('input[name="new-task-priority"]:checked');
-    const newTaskToDoOrDone = newTaskDialog.querySelector('input[name="to-do-or-done"]:checked');
-    const newTaskNotes = newTaskDialog.querySelector('textarea');
-
-    let newTask = createTask(activeList, newTaskName.value, newTaskDescription.value, newTaskDue.value, newTaskPriority.value, newTaskToDoOrDone.value, newTaskNotes.value);
-    
-    addTask(newTask);
-    displayTasks(newTask);
-    // save tasks
-    newTaskDialog.close();
-});
 
 // add npm date-fns
 
