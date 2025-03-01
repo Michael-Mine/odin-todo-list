@@ -1,14 +1,19 @@
 import './styles.css';
 import listIcon from './images/clipboard-outline.svg';
-import listIconCheck from './images/clipboard-check-outline.svg'
-import noteIcon from './images/note-outline.svg'
-import noteIconEdit from './images/note-edit-outline.svg'
-import noteIconCheck from './images/note-check-outline.svg'
-import noteIconRemove from './images/note-remove-outline.svg'
+import listIconCheck from './images/clipboard-check-outline.svg';
+import noteIcon from './images/note-outline.svg';
+import noteIconEdit from './images/note-edit-outline.svg';
+import noteIconCheck from './images/note-check-outline.svg';
+import noteIconRemove from './images/note-remove-outline.svg';
 import { lists, tasks, createTask, addTask, checkItemDone, changeDone } from './app-logic';
-import { removeList, openRemoveDialog, removeTasks } from './dom-remove'
+import { openNewListDialog } from './dom-add';
+import { removeListsDisplay, openRemoveDialog, removeTasksDisplay } from './dom-remove';
 
 let activeList;
+
+export function changeActiveList (newActiveList) {
+    activeList = newActiveList;
+}
 
 // function to look for data in localStoarge when app is first loaded
 if (localStorage.getItem('lists')) {
@@ -24,7 +29,15 @@ lists.forEach(displayLists);
 displayHeading(activeList);
 tasks.forEach(displayTasks);
 
-function displayLists (listName) {
+const newListItemButtonOpen = document.querySelector('#new-list-button-open');
+
+newListItemButtonOpen.addEventListener('click', () => {
+    openNewListDialog();
+    console.log('click');
+    
+});
+
+export function displayLists (listName) {
     const listsNav = document.querySelector('#side-bar-lists');
     
     const listItem = document.createElement('li');
@@ -49,10 +62,6 @@ function displayLists (listName) {
         listItemButton.appendChild(listIconAdd);
     }
 
-    const a = tasks
-        .filter((item) => item.list == activeList)
-        .every(checkItemDone)
-
     listItemButton.addEventListener('click', () => {
         activeList = listName;
         displayHeading(listName)
@@ -62,7 +71,7 @@ function displayLists (listName) {
     })
 };
 
-function displayHeading (listName) {
+export function displayHeading (listName) {
     const heading = document.querySelector('#list-heading');
     heading.textContent = listName;
 }
@@ -103,9 +112,9 @@ export function displayTasks (task) {
         doneButton.addEventListener('click', () => {
             changeDone(task);
             // save tasks to localStorage
-            removeTasks();
+            removeTasksDisplay();
             tasks.forEach(displayTasks);
-            removeList();
+            removeListsDisplay();
             lists.forEach(displayLists);
         });
 
@@ -121,13 +130,8 @@ export function displayTasks (task) {
         noteIconRemoveAdd.src = noteIconRemove;
         removeButton.appendChild(noteIconRemoveAdd);
 
-        // const removeDialogConfirmAdd = document.createElement('button');
-        // removeDialogConfirmAdd.textContent = "Delete Me"
-        // removeDialog.appendChild(removeDialogConfirmAdd); 
-
         removeButton.addEventListener('click', () => {
             openRemoveDialog(task)
-            
         });
 
         const descriptionDiv = document.createElement('div');
@@ -191,30 +195,6 @@ export function displayTasks (task) {
 // description  priority    notes button    remove button (confirm)
 
 // separate dom-add module?
-const taskListItemButtonOpen = document.querySelector('#new-list-button-open');
-const taskListItemButtonCancel = document.querySelector('#new-list-button-cancel');
-const taskListItemButtonAdd = document.querySelector('#new-list-button-add');
-const taskListItemDialog = document.querySelector('#new-list-dialog');
-
-taskListItemButtonOpen.addEventListener('click', () => {
-    taskListItemDialog.showModal();
-});
-
-taskListItemButtonCancel.addEventListener('click', () => {
-    taskListItemDialog.close();
-});
-
-taskListItemButtonAdd.addEventListener('click', (event) => {
-    event.preventDefault();
-    const taskListItemName = taskListItemDialog.querySelector('input');
-    taskListItemDialog.close(taskListItemName.value);
-    lists.push(taskListItemName.value);
-    activeList = taskListItemName.value;
-    // save lists, activeList
-    displayLists(taskListItemName.value);
-    displayHeading(activeList);
-    removeTasks()
-});
 
 
 // separate dom-add module?
