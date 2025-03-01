@@ -35,3 +35,5 @@ removeDialogCancel.addEventListener('click', () => {
     removeDialogTitle.textContent = '';
     removeDialog.close();
 })
+
+//remove list button

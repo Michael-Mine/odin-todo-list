@@ -111,7 +111,6 @@ export function displayTasks (task) {
             newContainerDiv.classList.toggle('tasks-container-done');
         }
 
-        // move to dom-change module?
         doneButton.addEventListener('click', () => {
             changeDone(task);
             // save tasks to localStorage
@@ -157,22 +156,8 @@ export function displayTasks (task) {
         noteIconAdd.src = noteIcon;
         notesButton.appendChild(noteIconAdd);
 
-        //move to dom-change module?
-        const notesDialog = document.querySelector('#notes-dialog');
-        const notesDialogTitle = document.querySelector('#notes-title');
-        const notesDialogNotes = document.querySelector('#notes-p');
-        const notesDialogClose = document.querySelector('#notes-button-close');
-
         notesButton.addEventListener('click', () => {
-            notesDialogTitle.textContent = task.title + ' notes:';
-            notesDialogNotes.textContent = task.notes;
-            notesDialog.showModal();
-        });
-
-        notesDialogClose.addEventListener('click', () => {
-            notesDialogTitle.textContent = "";
-            notesDialogNotes.textContent = "";
-            notesDialog.close();
+            openTaskNotes(task)
         });
 
         const editDiv = document.createElement('div');
@@ -194,15 +179,22 @@ export function displayTasks (task) {
     }
 };
 
-// title        dueDate     done tickbox    edit button
-// description  priority    notes button    remove button (confirm)
+const notesDialog = document.querySelector('#notes-dialog');
+const notesDialogTitle = document.querySelector('#notes-title');
+const notesDialogNotes = document.querySelector('#notes-p');
+const notesDialogClose = document.querySelector('#notes-button-close');
 
-// separate dom-add module?
+function openTaskNotes (task) {
+    notesDialogTitle.textContent = task.title + ' notes:';
+    notesDialogNotes.textContent = task.notes;
+    notesDialog.showModal();
+}
 
-
-// separate dom-add module?
-
-
+notesDialogClose.addEventListener('click', () => {
+    notesDialogTitle.textContent = "";
+    notesDialogNotes.textContent = "";
+    notesDialog.close();
+});
 
 // add npm date-fns
 
