@@ -13,6 +13,14 @@
             <!-- add my logo and github logo links -->
         </div>
         <div class="side-bar">
+            <ul id="side-bar-lists">
+                <li class="list-keep">
+                    <button id="new-list-button-open" class="button-new">
+                        <p>New List</p>
+                        <img src="images/clipboard-plus-outline.svg" alt="new list icon" height="30px" width="30px">
+                     </button>
+                </li>
+            </ul>
             <dialog id="new-list-dialog">
                 <form>
                     <p>
@@ -23,16 +31,27 @@
                 <button id="new-list-button-add">Add List</button>
                 <button id="new-list-button-cancel" formmethod="dialog">Cancel List</button>
             </dialog>
-            <ul id="side-bar-lists">
-                <li class="list-keep">
-                    <button id="new-list-button-open" class="button-new">
-                        <p>New List</p>
-                        <img src="images/clipboard-plus-outline.svg" alt="new list icon" height="30px" width="30px">
-                     </button>
-                </li>
-            </ul>
         </div>
         <div class="tasks">
+            <ul id="tasks-list">
+                <li class="tasks-list-keep tasks-buttons-top">
+                    <button id="new-task-button-open" class="button-new">
+                        <p>New Task</p> 
+                        <img src="images/note-plus-outline.svg" alt="new task icon" height="30px" width="30px">
+                    </button>
+                    <button class="button-new">
+                        <p>Edit List Name</p>
+                        <img src="images/clipboard-edit-outline.svg" alt="list edit icon" height="30px" width="30px">
+                    </button>
+                    <button id="remove-list-button" class="button-new">
+                        <p>Remove List</p>
+                        <img src="images/clipboard-remove-outline.svg" alt="list remove icon" height="30px" width="30px">
+                    </button>
+                </li>
+                <li class="tasks-list-keep">
+                    <h4 id="list-heading"></h4>
+                </li>
+            </ul>
             <dialog id="new-task-dialog">
                 <form>
                     <p>
@@ -83,35 +102,23 @@
                 <button id="new-task-button-add">Add Task</button>
                 <button id="new-task-button-cancel" formmethod="dialog">Cancel Task</button>
             </dialog>
-            <ul id="tasks-list">
-                <li class="tasks-list-keep tasks-buttons-top">
-                    <button id="new-task-button-open" class="button-new">
-                        <p>New Task</p> 
-                        <img src="images/note-plus-outline.svg" alt="new task icon" height="30px" width="30px">
-                    </button>
-                    <button class="button-new">
-                        <p>Edit List Name</p>
-                        <img src="images/clipboard-edit-outline.svg" alt="list edit icon" height="30px" width="30px">
-                    </button>
-                    <button class="button-new">
-                        <p>Remove List</p>
-                        <img src="images/clipboard-remove-outline.svg" alt="list remove icon" height="30px" width="30px">
-                    </button>
-                </li>
-                <li class="tasks-list-keep">
-                    <h4 id="list-heading"></h4>
-                </li>
-            </ul>
+            <!-- edit list dialog -->
+            <dialog id="remove-list-dialog">
+                <p id="remove-list-dialog-title"></p>
+                <button id="remove-list-dialog-button-cancel">Cancel</button>
+                <button id="remove-list-dialog-button-confirm">Delete</button>
+            </dialog>
             <dialog id="notes-dialog">
-                <button id="notes-button-close" autofocus>Close</button>
                 <p id="notes-title"></p>
                 <p id="notes-p"></p>
+                <button id="notes-button-close">Close</button>
             </dialog>
-            <dialog id="remove-dialog">
-                <p id="remove-dialog-title"></p>
-                <button id="remove-dialog-button-cancel" autofocus>Cancel</button>
-                <button id="remove-dialog-button-confirm">Delete</button>
+            <dialog id="remove-task-dialog">
+                <p id="remove-task-dialog-title"></p>
+                <button id="remove-task-dialog-button-cancel">Cancel</button>
+                <button id="remove-task-dialog-button-confirm">Delete</button>
             </dialog>
+            <!-- edit task dialog -->
         </div>
     </div>
 </body>

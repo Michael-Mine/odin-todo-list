@@ -13,27 +13,47 @@ export function removeTasksDisplay () {
     taskList.replaceChildren(...taskListKeep);  
 };
 
-const removeDialog = document.querySelector('#remove-dialog');
-const removeDialogTitle = document.querySelector('#remove-dialog-title');
-const removeDialogCancel = document.querySelector('#remove-dialog-button-cancel');
-const removeDialogConfirm = document.querySelector('#remove-dialog-button-confirm');
+const removeListDialog = document.querySelector('#remove-list-dialog');
+const removeListDialogTitle = document.querySelector('#remove-list-dialog-title');
+const removeListDialogCancel = document.querySelector('#remove-list-dialog-button-cancel');
+const removeListDialogConfirm = document.querySelector('#remove-list-dialog-button-confirm');
 
-export function openRemoveDialog (task) {
-    removeDialogTitle.textContent = 'Are you sure you want to remove: ' + task.title + '?'
-    removeDialog.showModal();
+export function openRemoveListDialog (activeList) {
+    removeListDialogTitle.textContent = 'Are you sure you want to remove: ' + activeList + ' list?'
+    removeListDialog.showModal();
 
-    removeDialogConfirm.addEventListener('click', () => {
+    removeListDialogConfirm.addEventListener('click', () => {
+        //remove list function
+    });
+};
+
+removeListDialogCancel.addEventListener('click', () => {
+    removeListDialogTitle.textContent = '';
+    removeListDialog.close();
+});
+
+const removeTaskDialog = document.querySelector('#remove-task-dialog');
+const removeTaskDialogTitle = document.querySelector('#remove-task-dialog-title');
+const removeTaskDialogCancel = document.querySelector('#remove-task-dialog-button-cancel');
+const removeTaskDialogConfirm = document.querySelector('#remove-task-dialog-button-confirm');
+
+export function openRemoveTaskDialog (task) {
+    removeTaskDialogTitle.textContent = 'Are you sure you want to remove: ' + task.title + '?'
+    removeTaskDialog.showModal();
+
+    removeTaskDialogConfirm.addEventListener('click', () => {
         removeItem(task); 
         // save tasks to localStorage
         removeTasksDisplay();
         tasks.forEach(displayTasks);
-        removeDialog.close();
+        removeTaskDialog.close();
     })
 }
 
-removeDialogCancel.addEventListener('click', () => {
-    removeDialogTitle.textContent = '';
-    removeDialog.close();
+removeTaskDialogCancel.addEventListener('click', () => {
+    removeTaskDialogTitle.textContent = '';
+    removeTaskDialog.close();
 })
-
 //remove list button
+
+

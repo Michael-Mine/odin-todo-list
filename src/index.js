@@ -7,7 +7,7 @@ import noteIconCheck from './images/note-check-outline.svg';
 import noteIconRemove from './images/note-remove-outline.svg';
 import { lists, tasks, checkItemDone, changeDone } from './app-logic';
 import { openNewListDialog, openNewTaskDialog } from './dom-add';
-import { removeListsDisplay, openRemoveDialog, removeTasksDisplay } from './dom-remove';
+import { removeListsDisplay, removeTasksDisplay, openRemoveListDialog, openRemoveTaskDialog } from './dom-remove';
 
 let activeList;
 
@@ -32,12 +32,18 @@ tasks.forEach(displayTasks);
 const newListItemButtonOpen = document.querySelector('#new-list-button-open');
 const newTaskButtonOpen = document.querySelector('#new-task-button-open');
 
+const removeListButton = document.querySelector('#remove-list-button');
+
 newListItemButtonOpen.addEventListener('click', () => {
     openNewListDialog();
 });
 
 newTaskButtonOpen.addEventListener('click', () => {
     openNewTaskDialog(activeList)
+});
+
+removeListButton.addEventListener('click', () => {
+    openRemoveListDialog(activeList);
 });
 
 export function displayLists (listName) {
@@ -133,7 +139,7 @@ export function displayTasks (task) {
         removeButton.appendChild(noteIconRemoveAdd);
 
         removeButton.addEventListener('click', () => {
-            openRemoveDialog(task)
+            openRemoveTaskDialog(task)
         });
 
         const descriptionDiv = document.createElement('div');
@@ -187,7 +193,7 @@ const notesDialogClose = document.querySelector('#notes-button-close');
 function openTaskNotes (task) {
     notesDialogTitle.textContent = task.title + ' notes:';
     notesDialogNotes.textContent = task.notes;
-    notesDialog.showModal();
+    notesDialog.show();
 }
 
 notesDialogClose.addEventListener('click', () => {
@@ -196,8 +202,11 @@ notesDialogClose.addEventListener('click', () => {
     notesDialog.close();
 });
 
-// add npm date-fns
+// add remove list button function
+// add edit list name button function
+// add edit task button function
 
+// add npm date-fns
 // add localStorage
 
 // left colour border for priority 
