@@ -1,5 +1,5 @@
-import { tasks, removeItem } from './app-logic'
-import { displayTasks } from './index';
+import { lists, tasks, removeList, removeAllListItems, removeItem } from './app-logic'
+import { displayLists, displayHeading, displayTasks } from './index';
 
 export function removeListsDisplay () {
     const listsNav = document.querySelector('#side-bar-lists');
@@ -19,11 +19,18 @@ const removeListDialogCancel = document.querySelector('#remove-list-dialog-butto
 const removeListDialogConfirm = document.querySelector('#remove-list-dialog-button-confirm');
 
 export function openRemoveListDialog (activeList) {
-    removeListDialogTitle.textContent = 'Are you sure you want to remove: ' + activeList + ' list?'
+    removeListDialogTitle.textContent = 'Are you sure you want to remove the list: ' + activeList + ' and all of it\'s tasks?'
     removeListDialog.showModal();
 
     removeListDialogConfirm.addEventListener('click', () => {
-        //remove list function
+        removeList(activeList);
+        removeAllListItems(activeList);
+        // save lists and tasks to localStorage
+        displayHeading(activeList + ' deleted');
+        removeTasksDisplay();
+        removeListsDisplay();
+        lists.forEach(displayLists);
+        removeListDialog.close();
     });
 };
 

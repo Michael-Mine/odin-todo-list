@@ -17,7 +17,7 @@ export function addTask(newItem) {
 };
 
 const item2 = createTask("Housework", "cook dinner", "cooking dinner", "Sunday", "A", "Done", "45 mins");
-const item3 = createTask("my list", "dishes", "cooking dinner", "Sunday", "B", "Done", "45 mins");
+const item3 = createTask("Vac", "Vacuuming", "Vac upstairs", "Sunday", "B", "To Do", "45 mins");
 
 addTask(item2);
 addTask(item3);
@@ -29,6 +29,19 @@ export function checkItemDone (item) {
 export function changeDone (item) {
     item.done === "To Do" ? item.done = "Done" : item.done = "To Do";
 };
+
+export function removeList (list) {
+    let index = lists.indexOf(list);
+    if (index >= 0) {
+        lists.splice(index, 1);
+    };
+};
+
+export function removeAllListItems (list) {
+    console.log(tasks);
+    tasks.filter((item) => item.list !== list);
+    console.log(tasks);
+}
 
 export function removeItem (item) {
     let id = item.itemIndex;
@@ -78,11 +91,10 @@ function changePriority (item, newPriority) {
 changeTitle(item2, "cook supper");
 changeDescription(item2, "cooking supper");
 changeNotes(item2, "30 mins");
-changeList(item3, "Housework");
+// changeList(item3, "Housework");
 // changePriority(item2, "high");
 // changeDone(item2);
 // removeItem(item3);
-console.log(tasks);
 
 //change dueDate function - using api
 

@@ -23,6 +23,7 @@ if (localStorage.getItem('lists')) {
 } else {
     lists.push('Housework')
     activeList = 'Housework';
+    lists.push('Vac')
 };
 
 lists.forEach(displayLists);
@@ -31,7 +32,7 @@ tasks.forEach(displayTasks);
 
 const newListItemButtonOpen = document.querySelector('#new-list-button-open');
 const newTaskButtonOpen = document.querySelector('#new-task-button-open');
-
+// edit button
 const removeListButton = document.querySelector('#remove-list-button');
 
 newListItemButtonOpen.addEventListener('click', () => {
@@ -73,9 +74,9 @@ export function displayLists (listName) {
 
     listItemButton.addEventListener('click', () => {
         activeList = listName;
-        displayHeading(listName)
-        displayTasks(listName);
-        console.log('click')
+        displayHeading(activeList);
+        removeTasksDisplay();
+        tasks.forEach(displayTasks);
         // change button colour?
     })
 };
