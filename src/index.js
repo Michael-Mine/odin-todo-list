@@ -63,9 +63,9 @@ export function displayLists (listName) {
 
     const listIconCheckAdd = document.createElement('img');
     listIconCheckAdd.src = listIconCheck;
-
+    
     if (tasks
-        .filter((item) => item.list == activeList)
+        .filter((item) => item.list == listName)
         .every(checkItemDone)) {
         listItemButton.appendChild(listIconCheckAdd);
     } else {
