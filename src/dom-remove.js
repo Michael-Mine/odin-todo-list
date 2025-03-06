@@ -14,12 +14,12 @@ export function removeTasksDisplay () {
 };
 
 const removeListDialog = document.querySelector('#remove-list-dialog');
-const removeListDialogTitle = document.querySelector('#remove-list-dialog-title');
+const removeListDialogText = document.querySelector('#remove-list-dialog-text');
 const removeListDialogCancel = document.querySelector('#remove-list-dialog-button-cancel');
 const removeListDialogConfirm = document.querySelector('#remove-list-dialog-button-confirm');
 
 export function openRemoveListDialog (activeList) {
-    removeListDialogTitle.textContent = 'Are you sure you want to remove the list: ' + activeList + ' and all of it\'s tasks?'
+    removeListDialogText.textContent = 'Are you sure you want to remove ' + activeList + ' and all of it\'s tasks?'
     removeListDialog.showModal();
 
     removeListDialogConfirm.addEventListener('click', () => {
@@ -35,17 +35,17 @@ export function openRemoveListDialog (activeList) {
 };
 
 removeListDialogCancel.addEventListener('click', () => {
-    removeListDialogTitle.textContent = '';
+    removeListDialogText.textContent = '';
     removeListDialog.close();
 });
 
 const removeTaskDialog = document.querySelector('#remove-task-dialog');
-const removeTaskDialogTitle = document.querySelector('#remove-task-dialog-title');
+const removeTaskDialogText = document.querySelector('#remove-task-dialog-text');
 const removeTaskDialogCancel = document.querySelector('#remove-task-dialog-button-cancel');
 const removeTaskDialogConfirm = document.querySelector('#remove-task-dialog-button-confirm');
 
 export function openRemoveTaskDialog (task) {
-    removeTaskDialogTitle.textContent = 'Are you sure you want to remove: ' + task.title + '?'
+    removeTaskDialogText.textContent = 'Are you sure you want to remove ' + task.title + '?'
     removeTaskDialog.showModal();
 
     removeTaskDialogConfirm.addEventListener('click', () => {
@@ -58,7 +58,7 @@ export function openRemoveTaskDialog (task) {
 }
 
 removeTaskDialogCancel.addEventListener('click', () => {
-    removeTaskDialogTitle.textContent = '';
+    removeTaskDialogText.textContent = '';
     removeTaskDialog.close();
 })
 //remove list button

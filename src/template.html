@@ -22,6 +22,7 @@
                 </li>
             </ul>
             <dialog id="new-list-dialog">
+                <h2>Add New List</h2> 
                 <form>
                     <p>
                         <label for="new-list-input">New List Name:</label>
@@ -53,6 +54,7 @@
                 </li>
             </ul>
             <dialog id="new-task-dialog">
+                <h2>Add New Task</h2>
                 <form>
                     <p>
                         <label for="new-task-name">New Task Name:</label>
@@ -102,9 +104,21 @@
                 <button id="new-task-button-add">Add Task</button>
                 <button id="new-task-button-cancel" formmethod="dialog">Cancel Task</button>
             </dialog>
-            <!-- edit list dialog -->
+            <dialog id="edit-list-name-dialog">
+                <h2>Edit List Name</h2>
+                <p id="edit-list-name-dialog-text"></p>
+                <form>
+                    <p>
+                        <label for="edit-list-name-input">new name:</label>
+                        <input type="text" id="edit-list-name-input" name="edit-list-name">
+                    </p>
+                </form>
+                <button id="edit-list-name-button-change">Change List Name</button>
+                <button id="edit-list-name-button-cancel" formmethod="dialog">Cancel</button>
+            </dialog>
             <dialog id="remove-list-dialog">
-                <p id="remove-list-dialog-title"></p>
+                <h2>Remove Current List</h2>
+                <p id="remove-list-dialog-text"></p>
                 <button id="remove-list-dialog-button-cancel">Cancel</button>
                 <button id="remove-list-dialog-button-confirm">Delete</button>
             </dialog>
@@ -114,7 +128,8 @@
                 <button id="notes-button-close">Close</button>
             </dialog>
             <dialog id="remove-task-dialog">
-                <p id="remove-task-dialog-title"></p>
+                <h2>Remove Task</h2>
+                <p id="remove-task-dialog-text"></p>
                 <button id="remove-task-dialog-button-cancel">Cancel</button>
                 <button id="remove-task-dialog-button-confirm">Delete</button>
             </dialog>

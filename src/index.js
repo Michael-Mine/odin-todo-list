@@ -7,6 +7,7 @@ import noteIconCheck from './images/note-check-outline.svg';
 import noteIconRemove from './images/note-remove-outline.svg';
 import { lists, tasks, checkItemDone, changeDone } from './app-logic';
 import { openNewListDialog, openNewTaskDialog } from './dom-add';
+import { openEditListDialog } from './dom-edit';
 import { removeListsDisplay, removeTasksDisplay, openRemoveListDialog, openRemoveTaskDialog } from './dom-remove';
 
 let activeList;
@@ -40,8 +41,12 @@ newListItemButtonOpen.addEventListener('click', () => {
 });
 
 newTaskButtonOpen.addEventListener('click', () => {
-    openNewTaskDialog(activeList)
+    openNewTaskDialog(activeList);
 });
+
+editListName.addEventListener('click', () => {
+    openEditListDialog(activeList);
+})
 
 removeListButton.addEventListener('click', () => {
     openRemoveListDialog(activeList);
