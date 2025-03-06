@@ -32,7 +32,7 @@ tasks.forEach(displayTasks);
 
 const newListItemButtonOpen = document.querySelector('#new-list-button-open');
 const newTaskButtonOpen = document.querySelector('#new-task-button-open');
-// edit button
+const editListName = document.querySelector('#edit-list-name-button');
 const removeListButton = document.querySelector('#remove-list-button');
 
 newListItemButtonOpen.addEventListener('click', () => {
@@ -203,7 +203,6 @@ notesDialogClose.addEventListener('click', () => {
     notesDialog.close();
 });
 
-// add remove list button function
 // add edit list name button function
 // add edit task button function
 

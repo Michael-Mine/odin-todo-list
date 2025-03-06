@@ -71,7 +71,7 @@
 
 /* colours here */
 
-.page-container {
+main {
     display: grid;
     grid-template-columns: 15rem 1fr;
     grid-template-rows: 4.5rem 100rem;
@@ -80,7 +80,7 @@
     'side-bar main';
 }
 
-.header {
+header {
     grid-area: header;
     display: flex;
     gap: 10px;
@@ -94,7 +94,7 @@
     filter: invert(97%) sepia(6%) saturate(1974%) hue-rotate(141deg) brightness(90%) contrast(69%);
 }
 
-.side-bar {
+aside {
     grid-area: side-bar;
     background-color: #DED4E6;
     font-family: "Montserrat";
@@ -122,14 +122,14 @@ li {
     gap: 4px;
 }
 
-.tasks {
+section {
     grid-area: main;
     padding: 2px;
     background-color: #EEE9F2;
     font-family: "Lato";
 }
 
-.tasks h3 {
+section h2 {
     font-family: "Montserrat";
 }
 

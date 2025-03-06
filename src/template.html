@@ -6,13 +6,13 @@
     <title>To-Do List</title>
 </head>
 <body>
-    <div class="page-container">
-        <div class="header">
+    <main>
+        <header>
             <img src="images/list-box-outline.svg" alt="list logo" class="header-logo" height="50px" width="50px">
             <h1>To Do List</h1>
             <!-- add my logo and github logo links -->
-        </div>
-        <div class="side-bar">
+        </header>
+        <aside class="side-bar">
             <ul id="side-bar-lists">
                 <li class="list-keep">
                     <button id="new-list-button-open" class="button-new">
@@ -31,15 +31,15 @@
                 <button id="new-list-button-add">Add List</button>
                 <button id="new-list-button-cancel" formmethod="dialog">Cancel List</button>
             </dialog>
-        </div>
-        <div class="tasks">
+        </aside>
+        <section class="tasks">
             <ul id="tasks-list">
                 <li class="tasks-list-keep tasks-buttons-top">
                     <button id="new-task-button-open" class="button-new">
                         <p>New Task</p> 
                         <img src="images/note-plus-outline.svg" alt="new task icon" height="30px" width="30px">
                     </button>
-                    <button class="button-new">
+                    <button id="edit-list-name-button" class="button-new">
                         <p>Edit List Name</p>
                         <img src="images/clipboard-edit-outline.svg" alt="list edit icon" height="30px" width="30px">
                     </button>
@@ -49,7 +49,7 @@
                     </button>
                 </li>
                 <li class="tasks-list-keep">
-                    <h4 id="list-heading"></h4>
+                    <h2 id="list-heading"></h2>
                 </li>
             </ul>
             <dialog id="new-task-dialog">
@@ -119,7 +119,7 @@
                 <button id="remove-task-dialog-button-confirm">Delete</button>
             </dialog>
             <!-- edit task dialog -->
-        </div>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
