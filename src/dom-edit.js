@@ -6,7 +6,10 @@ const editListNameButtonChange = document.querySelector('#edit-list-name-button-
 const editListNameButtonCancel = document.querySelector('#edit-list-name-button-cancel');
 const newNamedList = editListNameDialog.querySelector('input');
 
+let newActiveList;
+
 export function openEditListDialog (activeList) {
+    newActiveList = activeList
     editListNameDialogText.textContent = 'Change ' + activeList + ' to'
     editListNameDialog.showModal();
 };
@@ -17,8 +20,15 @@ editListNameButtonCancel.addEventListener('click', () => {
 
 editListNameButtonChange.addEventListener('click', (event) => {
     event.preventDefault();
-
     editListNameDialog.close(newNamedList.value);
 
+    // change list name in lists
 
+    // remove lists
+    // display list
+    // change list name in tasks
+    // remove tasks
+    // display tasks
+    // change heading
+    // save lists, tasks, activelist
 })

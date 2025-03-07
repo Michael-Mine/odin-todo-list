@@ -18,24 +18,27 @@ const removeListDialogText = document.querySelector('#remove-list-dialog-text');
 const removeListDialogCancel = document.querySelector('#remove-list-dialog-button-cancel');
 const removeListDialogConfirm = document.querySelector('#remove-list-dialog-button-confirm');
 
+let newActiveList;
+
 export function openRemoveListDialog (activeList) {
+    newActiveList = activeList
     removeListDialogText.textContent = 'Are you sure you want to remove ' + activeList + ' and all of it\'s tasks?'
     removeListDialog.showModal();
-
-    removeListDialogConfirm.addEventListener('click', () => {
-        removeList(activeList);
-        removeAllListItems(activeList);
-        // save lists and tasks to localStorage
-        displayHeading(activeList + ' deleted');
-        removeTasksDisplay();
-        removeListsDisplay();
-        lists.forEach(displayLists);
-        removeListDialog.close();
-    });
 };
 
 removeListDialogCancel.addEventListener('click', () => {
     removeListDialogText.textContent = '';
+    removeListDialog.close();
+});
+
+removeListDialogConfirm.addEventListener('click', () => {
+    removeList(newActiveList);
+    removeAllListItems(newActiveList);
+    // save lists and tasks to localStorage
+    displayHeading(newActiveList + ' deleted');
+    removeTasksDisplay();
+    removeListsDisplay();
+    lists.forEach(displayLists);
     removeListDialog.close();
 });
 
@@ -44,23 +47,25 @@ const removeTaskDialogText = document.querySelector('#remove-task-dialog-text');
 const removeTaskDialogCancel = document.querySelector('#remove-task-dialog-button-cancel');
 const removeTaskDialogConfirm = document.querySelector('#remove-task-dialog-button-confirm');
 
+let newTask;
+
 export function openRemoveTaskDialog (task) {
+    newTask = task;
     removeTaskDialogText.textContent = 'Are you sure you want to remove ' + task.title + '?'
     removeTaskDialog.showModal();
-
-    removeTaskDialogConfirm.addEventListener('click', () => {
-        removeItem(task); 
-        // save tasks to localStorage
-        removeTasksDisplay();
-        tasks.forEach(displayTasks);
-        removeTaskDialog.close();
-    })
-}
+};
 
 removeTaskDialogCancel.addEventListener('click', () => {
     removeTaskDialogText.textContent = '';
     removeTaskDialog.close();
-})
-//remove list button
+});
+
+removeTaskDialogConfirm.addEventListener('click', () => {
+    removeItem(newTask); 
+    // save tasks to localStorage
+    removeTasksDisplay();
+    tasks.forEach(displayTasks);
+    removeTaskDialog.close();
+});
 
 

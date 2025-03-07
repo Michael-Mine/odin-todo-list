@@ -1,4 +1,4 @@
-import { lists, createTask, addTask } from './app-logic'
+import { lists, createTask, addTask } from './app-logic';
 import { displayLists, displayHeading, displayTasks, changeActiveList } from './index';
 import { removeTasksDisplay } from './dom-remove';
 

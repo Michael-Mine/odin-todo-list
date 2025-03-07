@@ -22,6 +22,17 @@ const item3 = createTask("Vac", "Vacuuming", "Vac upstairs", "Sunday", "B", "To 
 addTask(item2);
 addTask(item3);
 
+export function changeListNameInLists (oldName, newName) {
+    let index = lists.indexOf(oldName);
+    if (index >= 0) {
+        lists[index] = newName;
+    };
+}
+
+export function changeListNameInTasks (oldName, newName) {
+
+}
+
 export function checkItemDone (item) {
     return item.done == "Done";
 };
