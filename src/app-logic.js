@@ -30,8 +30,12 @@ export function changeListNameInLists (oldName, newName) {
 }
 
 export function changeListNameInTasks (oldName, newName) {
-
-}
+    tasks.forEach((item) => {
+        if (item.list == oldName) {
+            item.list = newName;
+        };
+    });
+};
 
 export function checkItemDone (item) {
     return item.done == "Done";
@@ -65,18 +69,6 @@ export function removeItem (item) {
     } 
 };
 
-// removeItem(tasks[1])
-
-function findItem (item) {
-    let id = item.itemIndex;
-    
-    let index = tasks.findIndex(element => element.itemIndex === id);
-    
-    if (index !== -1) {
-        return element.itemIndex;
-    }
-};
-
 function changeTitle (item, newTitle) {
     item.title = newTitle;
 };
@@ -89,25 +81,12 @@ function changeNotes (item, newNotes) {
     item.notes = newNotes;
 };
 
-function changeList (item, newList) {
-    item.list = newList;
-};
-
 function changePriority (item, newPriority) {
     item.priority = newPriority;
 };
 
-
-
 changeTitle(item2, "cook supper");
 changeDescription(item2, "cooking supper");
 changeNotes(item2, "30 mins");
-// changeList(item3, "Housework");
 // changePriority(item2, "high");
 // changeDone(item2);
-// removeItem(item3);
-
-//change dueDate function - using api
-
-//add localStorage API - in separate module?
-

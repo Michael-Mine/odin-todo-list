@@ -208,7 +208,6 @@ notesDialogClose.addEventListener('click', () => {
     notesDialog.close();
 });
 
-// add edit list name button function
 // add edit task button function
 
 // add npm date-fns

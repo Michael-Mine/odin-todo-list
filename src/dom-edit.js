@@ -1,4 +1,6 @@
-
+import { lists, tasks, changeListNameInLists, changeListNameInTasks } from "./app-logic";
+import { changeActiveList, displayLists, displayTasks, displayHeading } from "./index";
+import { removeListsDisplay, removeTasksDisplay } from "./dom-remove";
 
 const editListNameDialog = document.querySelector('#edit-list-name-dialog')
 const editListNameDialogText = document.querySelector('#edit-list-name-dialog-text');
@@ -6,10 +8,10 @@ const editListNameButtonChange = document.querySelector('#edit-list-name-button-
 const editListNameButtonCancel = document.querySelector('#edit-list-name-button-cancel');
 const newNamedList = editListNameDialog.querySelector('input');
 
-let newActiveList;
+let oldActiveList;
 
 export function openEditListDialog (activeList) {
-    newActiveList = activeList
+    oldActiveList = activeList
     editListNameDialogText.textContent = 'Change ' + activeList + ' to'
     editListNameDialog.showModal();
 };
@@ -20,15 +22,19 @@ editListNameButtonCancel.addEventListener('click', () => {
 
 editListNameButtonChange.addEventListener('click', (event) => {
     event.preventDefault();
-    editListNameDialog.close(newNamedList.value);
 
-    // change list name in lists
+    changeListNameInLists(oldActiveList, newNamedList.value);
+    removeListsDisplay();
+    lists.forEach(displayLists);
 
-    // remove lists
-    // display list
-    // change list name in tasks
-    // remove tasks
-    // display tasks
-    // change heading
+    displayHeading(newNamedList.value);
+    changeActiveList(newNamedList.value);
+
+    changeListNameInTasks(oldActiveList, newNamedList.value);
+    removeTasksDisplay();
+    tasks.forEach(displayTasks);
+    
     // save lists, tasks, activelist
-})
+    editListNameDialog.close(newNamedList.value);
+});
+
