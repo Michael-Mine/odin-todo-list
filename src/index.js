@@ -7,7 +7,7 @@ import noteIconCheck from './images/note-check-outline.svg';
 import noteIconRemove from './images/note-remove-outline.svg';
 import { lists, tasks, checkItemDone, changeDone } from './app-logic';
 import { openNewListDialog, openNewTaskDialog } from './dom-add';
-import { openEditListDialog } from './dom-edit';
+import { openEditListNameDialog, openEditTaskDialog } from './dom-edit';
 import { removeListsDisplay, removeTasksDisplay, openRemoveListDialog, openRemoveTaskDialog } from './dom-remove';
 
 let activeList;
@@ -45,7 +45,7 @@ newTaskButtonOpen.addEventListener('click', () => {
 });
 
 editListName.addEventListener('click', () => {
-    openEditListDialog(activeList);
+    openEditListNameDialog(activeList);
 })
 
 removeListButton.addEventListener('click', () => {
@@ -172,21 +172,20 @@ export function displayTasks (task) {
             openTaskNotes(task)
         });
 
-        const editDiv = document.createElement('div');
-        newContainerDiv.appendChild(editDiv);
+        const editTaskDiv = document.createElement('div');
+        newContainerDiv.appendChild(editTaskDiv);
 
-        const editButton = document.createElement('button');
-        editButton.classList.toggle('tasks-buttons-notes');
-        editButton.textContent = 'Edit';
-        editDiv.appendChild(editButton);
+        const editTaskButton = document.createElement('button');
+        editTaskButton.classList.toggle('tasks-buttons-notes');
+        editTaskButton.textContent = 'Edit Task';
+        editTaskDiv.appendChild(editTaskButton);
 
         const noteIconEditAdd = document.createElement('img');
         noteIconEditAdd.src = noteIconEdit;
-        editButton.appendChild(noteIconEditAdd);
+        editTaskButton.appendChild(noteIconEditAdd);
 
-        editButton.addEventListener('click', () => {
-            // function to dom-change module?
-            console.log('click')
+        editTaskButton.addEventListener('click', () => {
+            openEditTaskDialog(task);
         });
     }
 };
