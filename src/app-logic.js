@@ -45,6 +45,18 @@ export function changeDone (item) {
     item.done === "To Do" ? item.done = "Done" : item.done = "To Do";
 };
 
+export function editTask (task, newTitle, newDescription, newDueDate, newPriority, newNotes) {
+    let id = task.itemIndex;
+    let index = tasks.findIndex((element) => element.itemIndex === id);
+    if (index >= 0) {
+        tasks[index].title = newTitle;
+        tasks[index].description = newDescription;
+        tasks[index].dueDate = newDueDate;
+        tasks[index].priority = newPriority;
+        tasks[index].notes = newNotes;
+    }
+}
+
 export function removeList (list) {
     let index = lists.indexOf(list);
     if (index >= 0) {
@@ -63,10 +75,7 @@ export function removeItem (item) {
     let index = tasks.findIndex((element) => element.itemIndex === id);
     if (index >= 0) {
         tasks.splice(index, 1); 
-    } else {
-        // change to alert for IU
-        console.log("error: item not found to remove");
-    } 
+    }
 };
 
 function changeTitle (item, newTitle) {

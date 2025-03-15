@@ -1,4 +1,4 @@
-import { lists, tasks, changeListNameInLists, changeListNameInTasks } from "./app-logic";
+import { lists, tasks, changeListNameInLists, changeListNameInTasks, editTask } from "./app-logic";
 import { changeActiveList, displayLists, displayTasks, displayHeading } from "./index";
 import { removeListsDisplay, removeTasksDisplay } from "./dom-remove";
 
@@ -45,7 +45,7 @@ const editTaskButtonConfirm = document.querySelector('#edit-task-button-confirm'
 const editTaskTitle = editTaskDialog.querySelector('input[name="edit-task-title"]');
 const editTaskDescription = editTaskDialog.querySelector('input[name="edit-task-description"]');
 const editTaskDue = editTaskDialog.querySelector('input[name="edit-task-due"]');
-const editTaskPriority = editTaskDialog.querySelector('input[name="edit-task-priority"]:checked');
+const editTaskPriority = editTaskDialog.querySelector('select');
 const editTaskNotes = editTaskDialog.querySelector('textarea');
 
 let taskPreEdit;
@@ -66,12 +66,11 @@ editTaskButtonCancel.addEventListener('click', () => {
 
 editTaskButtonConfirm.addEventListener('click', (event) => {
     event.preventDefault();
-
-    // edit title, description, dueDate, priority, notes
-
+    console.log(editTaskPriority.value)
+    editTask(taskPreEdit, editTaskTitle.value, editTaskDescription.value, editTaskDue.value, editTaskPriority.value, editTaskNotes.value)
     // save tasks
     removeTasksDisplay();
     tasks.forEach(displayTasks);
-    editTaskButtonConfirm.close();
+    editTaskDialog.close();
 });
 
