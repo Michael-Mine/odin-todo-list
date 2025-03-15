@@ -9,6 +9,7 @@ import { lists, tasks, checkItemDone, changeDone } from './app-logic';
 import { openNewListDialog, openNewTaskDialog } from './dom-add';
 import { openEditListNameDialog, openEditTaskDialog } from './dom-edit';
 import { removeListsDisplay, removeTasksDisplay, openRemoveListDialog, openRemoveTaskDialog } from './dom-remove';
+import { getLocalStorageAll } from './local-storage';
 import { formatDistanceToNow } from 'date-fns';
 
 let activeList;
@@ -18,15 +19,7 @@ export function changeActiveList (newActiveList) {
 }
 
 // function to look for data in localStoarge when app is first loaded
-if (localStorage.getItem('lists')) {
-    lists = localStorage.getItem('lists');
-    activeList = localStorage.getItem('activeList');
-    tasks = localStorage.getItem('tasks');
-} else {
-    lists.push('Housework')
-    activeList = 'Housework';
-    lists.push('Vac')
-};
+getLocalStorageAll()
 
 lists.forEach(displayLists);
 displayHeading(activeList);
