@@ -16,8 +16,8 @@ export function addTask(newItem) {
     tasks.push(newItem)
 };
 
-const item2 = createTask("Housework", "cook dinner", "cooking dinner", "Sunday", "A", "Done", "45 mins");
-const item3 = createTask("Vac", "Vacuuming", "Vac upstairs", "Sunday", "B", "To Do", "45 mins");
+const item2 = createTask("Housework", "cook dinner", "cooking dinner", "2025-03-16", "A", "Done", "45 mins");
+const item3 = createTask("Vac", "Vacuuming", "Vac upstairs", "2025-03-14", "B", "To Do", "45 mins");
 
 addTask(item2);
 addTask(item3);

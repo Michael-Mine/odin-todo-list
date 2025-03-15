@@ -9,6 +9,7 @@ import { lists, tasks, checkItemDone, changeDone } from './app-logic';
 import { openNewListDialog, openNewTaskDialog } from './dom-add';
 import { openEditListNameDialog, openEditTaskDialog } from './dom-edit';
 import { removeListsDisplay, removeTasksDisplay, openRemoveListDialog, openRemoveTaskDialog } from './dom-remove';
+import { formatDistanceToNow } from 'date-fns';
 
 let activeList;
 
@@ -104,7 +105,9 @@ export function displayTasks (task) {
         taskListItem.appendChild(newContainerDiv);
 
         const dueDate = document.createElement('div');
-        dueDate.textContent = 'Due on: ' + task.dueDate;
+        dueDate.textContent = 'Due ' + formatDistanceToNow(
+            new Date(task.dueDate), {addSuffix: true}
+        );
         newContainerDiv.appendChild(dueDate);
 
         const doneDiv = document.createElement('div');
@@ -207,9 +210,6 @@ notesDialogClose.addEventListener('click', () => {
     notesDialog.close();
 });
 
-// add edit task button function
-
-// add npm date-fns
 // add localStorage
 
 // left colour border for priority 
