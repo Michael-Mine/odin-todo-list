@@ -1,5 +1,4 @@
 // comments for why not how
-// array to iterate through
 
 export const lists = []
 export const tasks = [];
@@ -11,12 +10,6 @@ export function createTask (list, title, description, dueDate, priority, done, n
     itemIndex += 1;
     return { list, title, description, dueDate, priority, done, notes, itemIndex }
 }
-
-const item2 = createTask("Housework", "cook dinner", "cooking dinner", "2025-03-16", "A", "Done", "45 mins");
-const item3 = createTask("Vac", "Vacuuming", "Vac upstairs", "2025-03-14", "B", "To Do", "45 mins");
-
-tasks.push(item2);
-tasks.push(item3);
 
 export function changeListNameInLists (oldName, newName) {
     let index = lists.indexOf(oldName);
@@ -73,25 +66,3 @@ export function removeItem (item) {
         tasks.splice(index, 1); 
     }
 };
-
-function changeTitle (item, newTitle) {
-    item.title = newTitle;
-};
-
-function changeDescription (item, newDescription) {
-    item.description = newDescription;
-};
-
-function changeNotes (item, newNotes) {
-    item.notes = newNotes;
-};
-
-function changePriority (item, newPriority) {
-    item.priority = newPriority;
-};
-
-changeTitle(item2, "cook supper");
-changeDescription(item2, "cooking supper");
-changeNotes(item2, "30 mins");
-// changePriority(item2, "high");
-// changeDone(item2);
