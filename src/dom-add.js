@@ -1,4 +1,4 @@
-import { lists, createTask, addTask } from './app-logic';
+import { lists, tasks, createTask } from './app-logic';
 import { displayLists, displayHeading, displayTasks, changeActiveList } from './index';
 import { removeTasksDisplay } from './dom-remove';
 
@@ -51,7 +51,7 @@ newTaskButtonCancel.addEventListener('click', () => {
 newTaskButtonAdd.addEventListener('click', (event) => {
     event.preventDefault();
     let newTask = createTask(newTaskActiveList, newTaskTitle.value, newTaskDescription.value, newTaskDue.value, newTaskPriority.value, newTaskToDoOrDone.value, newTaskNotes.value);
-    addTask(newTask);
+    tasks.push(newTask);
     displayTasks(newTask);
     // save tasks
     newTaskDialog.close();

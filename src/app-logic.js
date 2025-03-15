@@ -12,15 +12,11 @@ export function createTask (list, title, description, dueDate, priority, done, n
     return { list, title, description, dueDate, priority, done, notes, itemIndex }
 }
 
-export function addTask(newItem) {
-    tasks.push(newItem)
-};
-
 const item2 = createTask("Housework", "cook dinner", "cooking dinner", "2025-03-16", "A", "Done", "45 mins");
 const item3 = createTask("Vac", "Vacuuming", "Vac upstairs", "2025-03-14", "B", "To Do", "45 mins");
 
-addTask(item2);
-addTask(item3);
+tasks.push(item2);
+tasks.push(item3);
 
 export function changeListNameInLists (oldName, newName) {
     let index = lists.indexOf(oldName);
