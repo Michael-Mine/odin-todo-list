@@ -34,11 +34,14 @@ removeListDialogCancel.addEventListener('click', () => {
 removeListDialogConfirm.addEventListener('click', () => {
     removeList(newActiveList);
     removeAllListItems(newActiveList);
-    // save lists and tasks to localStorage
-    displayHeading(newActiveList + ' deleted');
-    removeTasksDisplay();
+    localStorage.setItem('lists', JSON.stringify(lists));
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+
     removeListsDisplay();
+    removeTasksDisplay();
+    
     lists.forEach(displayLists);
+    displayHeading(newActiveList + ' deleted');
     removeListDialog.close();
 });
 
@@ -62,7 +65,7 @@ removeTaskDialogCancel.addEventListener('click', () => {
 
 removeTaskDialogConfirm.addEventListener('click', () => {
     removeItem(newTask); 
-    // save tasks to localStorage
+    localStorage.setItem('tasks', JSON.stringify(tasks));
     removeTasksDisplay();
     tasks.forEach(displayTasks);
     removeTaskDialog.close();

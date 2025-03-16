@@ -19,8 +19,8 @@ newListItemButtonAdd.addEventListener('click', (event) => {
     newListItemDialog.close(taskListItemName.value);
 
     lists.push(taskListItemName.value);
+    localStorage.setItem('lists', JSON.stringify(lists));
     changeActiveList(taskListItemName.value);
-    // save lists, activeList
     displayLists(taskListItemName.value);
     displayHeading(taskListItemName.value);
     removeTasksDisplay();
@@ -51,7 +51,7 @@ newTaskButtonAdd.addEventListener('click', (event) => {
     event.preventDefault();
     let newTask = createTask(newTaskActiveList, newTaskTitle.value, newTaskDescription.value, newTaskDue.value, newTaskPriority.value, 'To Do', newTaskNotes.value);
     tasks.push(newTask);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
     displayTasks(newTask);
-    // save tasks
     newTaskDialog.close();
 });

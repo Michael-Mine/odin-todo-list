@@ -24,17 +24,18 @@ editListNameButtonChange.addEventListener('click', (event) => {
     event.preventDefault();
 
     changeListNameInLists(oldActiveList, newNamedList.value);
-    removeListsDisplay();
-    lists.forEach(displayLists);
-
-    displayHeading(newNamedList.value);
+    changeListNameInTasks(oldActiveList, newNamedList.value);
+    localStorage.setItem('lists', JSON.stringify(lists));
+    localStorage.setItem('tasks', JSON.stringify(tasks));
     changeActiveList(newNamedList.value);
 
-    changeListNameInTasks(oldActiveList, newNamedList.value);
+    removeListsDisplay();
     removeTasksDisplay();
+
+    lists.forEach(displayLists);
     tasks.forEach(displayTasks);
+    displayHeading(newNamedList.value);
     
-    // save lists, tasks, activelist
     editListNameDialog.close(newNamedList.value);
 });
 
@@ -68,7 +69,7 @@ editTaskButtonConfirm.addEventListener('click', (event) => {
     event.preventDefault();
     console.log(editTaskPriority.value)
     editTask(taskPreEdit, editTaskTitle.value, editTaskDescription.value, editTaskDue.value, editTaskPriority.value, editTaskNotes.value)
-    // save tasks
+    localStorage.setItem('tasks', JSON.stringify(tasks));
     removeTasksDisplay();
     tasks.forEach(displayTasks);
     editTaskDialog.close();

@@ -16,6 +16,7 @@ let activeList;
 
 export function changeActiveList (newActiveList) {
     activeList = newActiveList;
+    localStorage.setItem('activeList', activeList);
 }
 
 getLocalStorageAll()
@@ -71,7 +72,7 @@ export function displayLists (listName) {
     }
 
     listItemButton.addEventListener('click', () => {
-        activeList = listName;
+        changeActiveList(listName);
         displayHeading(activeList);
         removeTasksDisplay();
         tasks.forEach(displayTasks);

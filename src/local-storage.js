@@ -14,11 +14,10 @@ const defaultTask7 = createTask("Housework", "Washing", "Wash plates and pot", "
 const defaultTask8 = createTask("Housework", "Cleaning", "Mop floors", "2025-03-16", "B", "To Do", "45 mins");
 const defaultTask9 = createTask("Housework", "Sheets", "Change bed sheets", "2025-03-16", "A", "To Do", "10 mins");
 
-let activeList;
-
 function getLocalStorageLists () {
     if (localStorage.getItem('lists')) {
-        lists = JSON.parse(localStorage.getItem('lists'));
+        let savedLists = JSON.parse(localStorage.getItem('lists'));
+        lists.push(...savedLists);
     } else {
         lists.push('Shopping', 'Cooking', 'Housework');
     };
@@ -35,11 +34,11 @@ function getLocalStorageTasks () {
 
 function getLocalStorageActiveList () {
     if (localStorage.getItem('activeList')) {
-        activeList = localStorage.getItem('activeList');
+        let SavedActiveList = localStorage.getItem('activeList');
+        changeActiveList(SavedActiveList);
     } else {
-        activeList = lists[0];
+        changeActiveList(lists[0]);
     };
-    changeActiveList(activeList);
 };
 
 export function getLocalStorageAll () {
@@ -47,9 +46,3 @@ export function getLocalStorageAll () {
     getLocalStorageTasks();
     getLocalStorageActiveList();
 };
-
-function saveTasks () {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    localStorage.setItem('lists', JSON.stringify(lists));
-    localStorage.setItem('activeList', activeList);
-}

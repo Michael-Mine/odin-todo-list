@@ -5,7 +5,6 @@ export const tasks = [];
 
 let itemIndex = 0;
 
-//no methods to parse items to JSON for storage
 export function createTask (list, title, description, dueDate, priority, done, notes) {
     itemIndex += 1;
     return { list, title, description, dueDate, priority, done, notes, itemIndex }
