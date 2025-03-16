@@ -120,7 +120,7 @@ export function displayTasks (task) {
 
         doneButton.addEventListener('click', () => {
             changeDone(task);
-            // save tasks to localStorage
+            localStorage.setItem('tasks', JSON.stringify(tasks));
             removeTasksDisplay();
             removeListsDisplay();
             tasks.forEach(displayTasks);
@@ -201,7 +201,5 @@ notesDialogClose.addEventListener('click', () => {
     notesDialogNotes.textContent = "";
     notesDialog.close();
 });
-
-// add localStorage
 
 // left colour border for priority 

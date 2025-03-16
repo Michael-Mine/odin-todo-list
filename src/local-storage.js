@@ -26,7 +26,8 @@ function getLocalStorageLists () {
 
 function getLocalStorageTasks () {
     if (localStorage.getItem('tasks')) {
-        tasks = JSON.parse(localStorage.getItem('tasks'));
+        let savedTasks = JSON.parse(localStorage.getItem('tasks'));
+        tasks.push(...savedTasks);
     } else {
         tasks.push(defaultTask1, defaultTask2, defaultTask3, defaultTask4, defaultTask5, defaultTask6, defaultTask7, defaultTask8, defaultTask9);
     };
