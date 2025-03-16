@@ -33,9 +33,7 @@ const newTaskButtonAdd = document.querySelector('#new-task-button-add');
 const newTaskTitle = newTaskDialog.querySelector('input[name="new-task-title"]');
 const newTaskDescription = newTaskDialog.querySelector('input[name="new-task-description"]');
 const newTaskDue = newTaskDialog.querySelector('input[name="new-task-due"]');
-// const newTaskPriority = newTaskDialog.querySelector('input[name="new-task-priority"]:checked');
 const newTaskPriority = newTaskDialog.querySelector('select');
-const newTaskToDoOrDone = newTaskDialog.querySelector('input[name="to-do-or-done"]:checked');
 const newTaskNotes = newTaskDialog.querySelector('textarea');
 
 let newTaskActiveList;
@@ -51,7 +49,7 @@ newTaskButtonCancel.addEventListener('click', () => {
 
 newTaskButtonAdd.addEventListener('click', (event) => {
     event.preventDefault();
-    let newTask = createTask(newTaskActiveList, newTaskTitle.value, newTaskDescription.value, newTaskDue.value, newTaskPriority.value, newTaskToDoOrDone.value, newTaskNotes.value);
+    let newTask = createTask(newTaskActiveList, newTaskTitle.value, newTaskDescription.value, newTaskDue.value, newTaskPriority.value, 'To Do', newTaskNotes.value);
     tasks.push(newTask);
     displayTasks(newTask);
     // save tasks
