@@ -18,7 +18,6 @@ export function changeActiveList (newActiveList) {
     activeList = newActiveList;
 }
 
-// function to look for data in localStoarge when app is first loaded
 getLocalStorageAll()
 
 lists.forEach(displayLists);
@@ -123,8 +122,8 @@ export function displayTasks (task) {
             changeDone(task);
             // save tasks to localStorage
             removeTasksDisplay();
-            tasks.forEach(displayTasks);
             removeListsDisplay();
+            tasks.forEach(displayTasks);
             lists.forEach(displayLists);
         });
 

@@ -33,7 +33,8 @@ const newTaskButtonAdd = document.querySelector('#new-task-button-add');
 const newTaskTitle = newTaskDialog.querySelector('input[name="new-task-title"]');
 const newTaskDescription = newTaskDialog.querySelector('input[name="new-task-description"]');
 const newTaskDue = newTaskDialog.querySelector('input[name="new-task-due"]');
-const newTaskPriority = newTaskDialog.querySelector('input[name="new-task-priority"]:checked');
+// const newTaskPriority = newTaskDialog.querySelector('input[name="new-task-priority"]:checked');
+const newTaskPriority = newTaskDialog.querySelector('select');
 const newTaskToDoOrDone = newTaskDialog.querySelector('input[name="to-do-or-done"]:checked');
 const newTaskNotes = newTaskDialog.querySelector('textarea');
 

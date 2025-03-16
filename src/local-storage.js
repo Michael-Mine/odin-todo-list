@@ -18,7 +18,7 @@ let activeList;
 
 function getLocalStorageLists () {
     if (localStorage.getItem('lists')) {
-        lists = localStorage.getItem('lists');
+        lists = JSON.parse(localStorage.getItem('lists'));
     } else {
         lists.push('Shopping', 'Cooking', 'Housework');
     };
@@ -26,7 +26,7 @@ function getLocalStorageLists () {
 
 function getLocalStorageTasks () {
     if (localStorage.getItem('tasks')) {
-        tasks = localStorage.getItem('tasks');
+        tasks = JSON.parse(localStorage.getItem('tasks'));
     } else {
         tasks.push(defaultTask1, defaultTask2, defaultTask3, defaultTask4, defaultTask5, defaultTask6, defaultTask7, defaultTask8, defaultTask9);
     };
@@ -46,3 +46,9 @@ export function getLocalStorageAll () {
     getLocalStorageTasks();
     getLocalStorageActiveList();
 };
+
+function saveTasks () {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('lists', JSON.stringify(lists));
+    localStorage.setItem('activeList', activeList);
+}
