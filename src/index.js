@@ -76,7 +76,6 @@ export function displayLists (listName) {
         displayHeading(activeList);
         removeTasksDisplay();
         tasks.forEach(displayTasks);
-        // change button colour?
     })
 };
 
@@ -202,5 +201,3 @@ notesDialogClose.addEventListener('click', () => {
     notesDialogNotes.textContent = "";
     notesDialog.close();
 });
-
-// left colour border for priority 

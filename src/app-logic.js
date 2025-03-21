@@ -1,5 +1,3 @@
-// comments for why not how
-
 export const lists = []
 export const tasks = [];
 

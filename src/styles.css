@@ -83,12 +83,17 @@ main {
 header {
     grid-area: header;
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
     padding: 10px;
     font-family: "Montserrat";
     background-color: #5B2A86;
     color: #9AC6C5;
 }
+
+.header-title {
+  display: flex;
+  gap: 10px;
+} 
 
 .header-logo {
     filter: invert(97%) sepia(6%) saturate(1974%) hue-rotate(141deg) brightness(90%) contrast(69%);
@@ -170,6 +175,14 @@ dialog {
 dialog::backdrop {
   background-color: hsl(250, 100%, 50%, 0.25);
 }
+
+button {
+  
+}
+
+/* left colour border for priority  */
+/* change button colour */
+/* change dialogs */
 
 /* My CSS declaration Order
     Positioning
