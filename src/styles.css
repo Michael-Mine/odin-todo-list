@@ -69,7 +69,16 @@
     src: url('./fonts/montserrat-v29-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* colours here */
+:root {
+  --primary-colour-header: #5B2A86;
+  --primary-colour-aside: #DED4E6;
+  --primary-colour-main: #EEE9F2;
+  --secondary-colour-header: #9AC6C5;
+  --secondary-colour-aside: #9AC6C5;
+  --secondary-colour-main: #9AC6C5;
+  --colour-white: #F9F9F9;
+  --dialog-backdrop: hsl(250, 100%, 50%, 0.25);
+}
 
 main {
     display: grid;
@@ -86,8 +95,8 @@ header {
     justify-content: space-between;
     padding: 10px;
     font-family: "Montserrat";
-    background-color: #5B2A86;
-    color: #9AC6C5;
+    background-color: var(--primary-colour-header);
+    color: var(--secondary-colour-header);
 }
 
 .header-title {
@@ -101,7 +110,7 @@ header {
 
 aside {
     grid-area: side-bar;
-    background-color: #DED4E6;
+    background-color: var(--primary-colour-aside);
     font-family: "Montserrat";
 }
 
@@ -130,7 +139,7 @@ li {
 section {
     grid-area: main;
     padding: 2px;
-    background-color: #EEE9F2;
+    background-color: var(--primary-colour-main);
     font-family: "Lato";
 }
 
@@ -143,11 +152,11 @@ section h2 {
     display: grid;
     grid-template-columns: 1fr 1fr repeat(2, 9rem);
     grid-template-rows: repeat(2, 2rem);
-    background-color: #F9F9F9;
+    background-color: var(--colour-white);
 }
 
 .tasks-container-done {
-  background-color:#EEE9F2;
+  background-color:var(--primary-colour-main);
 }
 
 .tasks-buttons-top {
@@ -173,7 +182,7 @@ dialog {
 }
 
 dialog::backdrop {
-  background-color: hsl(250, 100%, 50%, 0.25);
+  background-color: var(--dialog-backdrop);
 }
 
 button {
