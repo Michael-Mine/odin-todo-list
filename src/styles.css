@@ -129,8 +129,8 @@ li {
 
 button {
   border: solid 1px var(--secondary-colour-header);
-  border-radius: 4px;
-  
+  border-radius: 8px;
+  background-color: var(--primary-colour-section);
 }
 
 .side-bar-list-buttons, .section-buttons-fixed, .section-buttons-li, .task-buttons {
@@ -143,14 +143,6 @@ button {
   height: 2rem;
 }
 
-.side-bar-list-buttons:hover, .section-buttons-fixed:hover, .task-buttons:hover, #new-list-button-open:hover {
-  background-color: var(--secondary-colour-light);
-}
-
-#new-list-button-open, .section-buttons-fixed {
-  background-color: var(--secondary-colour-lightest); 
-}
-
 .section-buttons-fixed {
   width: 9.5rem;
 }
@@ -158,6 +150,14 @@ button {
 .task-buttons {
   width: 7rem;
   height: 1.8rem;
+}
+
+#new-list-button-open, .section-buttons-fixed {
+  background-color: var(--secondary-colour-lightest); 
+}
+
+.side-bar-list-buttons:hover, .section-buttons-fixed:hover, .task-buttons:hover, #new-list-button-open:hover {
+  background-color: var(--secondary-colour-light);
 }
 
 section {
@@ -199,10 +199,6 @@ dialog {
 dialog::backdrop {
   background-color: var(--dialog-backdrop);
 }
-
-
-/* left colour border for priority  */
-/* change button colour */
 /* change dialogs */
 
 /* My CSS declaration Order
