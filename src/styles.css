@@ -133,6 +133,10 @@ button {
   background-color: var(--primary-colour-section);
 }
 
+button:hover {
+  background-color: var(--secondary-colour-light);
+}
+
 .side-bar-list-buttons, .section-buttons-fixed, .section-buttons-li, .task-buttons {
   display: flex;
   justify-content: space-between;
@@ -154,10 +158,6 @@ button {
 
 #new-list-button-open, .section-buttons-fixed {
   background-color: var(--secondary-colour-lightest); 
-}
-
-.side-bar-list-buttons:hover, .section-buttons-fixed:hover, .task-buttons:hover, #new-list-button-open:hover {
-  background-color: var(--secondary-colour-light);
 }
 
 section {
@@ -194,12 +194,16 @@ dialog {
   margin-top: 10px;
   border: none;
   border-radius: 1rem;
+  text-align: center;
+}
+
+#new-task-dialog, #edit-task-dialog {
+  text-align: left;
 }
 
 dialog::backdrop {
   background-color: var(--dialog-backdrop);
 }
-/* change dialogs */
 
 /* My CSS declaration Order
     Positioning

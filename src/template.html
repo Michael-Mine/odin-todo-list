@@ -43,6 +43,7 @@
                         <input type="text" id="new-list-input" name="new-list-name">
                     </p>
                 </form>
+                <br>
                 <button id="new-list-button-add">Add</button>
                 <button id="new-list-button-cancel" formmethod="dialog">Cancel</button>
             </dialog>
@@ -82,8 +83,7 @@
                         <label for="new-task-due">Task Due:</label>
                         <input type="date" id="new-task-due" name="new-task-due">
                     </p>
-                    <p>Priority:</p>
-                    <div>
+                    <p>Priority: 
                         <select name="new-task-priority" id="new-task-priority">
                             <option value="A">A (highest)</option>
                             <option value="B">B</option>
@@ -91,7 +91,7 @@
                             <option value="D">D</option>
                             <option value="E">E (lowest)</option>
                         </select>
-                    </div>
+                    </p>
                     <p>Notes:</p>
                     <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
                 </form>
@@ -107,6 +107,7 @@
                         <input type="text" id="edit-list-name-input" name="edit-list-name">
                     </p>
                 </form>
+                <br>
                 <button id="edit-list-name-button-confirm">Confirm</button>
                 <button id="edit-list-name-button-cancel" formmethod="dialog">Cancel</button>
             </dialog>
@@ -131,27 +132,26 @@
                 <h2>Edit Task</h2>
                 <form>
                     <p>
-                        <label for="edit-task-title">Task Title:</label>
+                        <label for="edit-task-title">Title:</label>
                         <input type="text" id="edit-task-title" name="edit-task-title">
                     </p>
                     <p>
-                        <label for="edit-task-description">Task Description:</label>
+                        <label for="edit-task-description">Description:</label>
                         <input type="text" id="edit-task-description" name="edit-task-description">
                     </p>
                     <p>
-                        <label for="edit-task-due">Task Due:</label>
+                        <label for="edit-task-due">Due:</label>
                         <input type="date" id="edit-task-due" name="edit-task-due">
                     </p>
-                    <p>Task Priority:</p>
-                    <div>
+                    <p>Priority:
                         <select name="edit-task-priority" id="edit-task-priority">
                             <option value="A">A (highest)</option>
-                            <option value="B">B</option>
+                            <option value="B">B</option> 
                             <option value="C">C</option>
                             <option value="D">D</option>
                             <option value="E">E (lowest)</option>
                         </select>
-                    </div>
+                    </p>
                     <p>Notes:</p>
                     <textarea name="notes-edit" id="notes-edit" cols="30" rows="10"></textarea>
                 </form>
