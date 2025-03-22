@@ -58,9 +58,11 @@ export function displayLists (listName) {
     listItem.appendChild(listItemButton);
 
     const listIconAdd = document.createElement('img');
+    listIconAdd.classList.toggle('icons');
     listIconAdd.src = listIcon;
 
     const listIconCheckAdd = document.createElement('img');
+    listIconCheckAdd.classList.toggle('icons');
     listIconCheckAdd.src = listIconCheck;
     
     if (tasks
@@ -111,6 +113,7 @@ export function displayTasks (task) {
         doneDiv.appendChild(doneButton);
 
         const noteIconCheckAdd = document.createElement('img');
+        noteIconCheckAdd.classList.toggle('icons');
         noteIconCheckAdd.src = noteIconCheck;
         doneButton.appendChild(noteIconCheckAdd);
 
@@ -136,6 +139,7 @@ export function displayTasks (task) {
         removeDiv.appendChild(removeButton);
 
         const noteIconRemoveAdd = document.createElement('img');
+        noteIconRemoveAdd.classList.toggle('icons');
         noteIconRemoveAdd.src = noteIconRemove;
         removeButton.appendChild(noteIconRemoveAdd);
 
@@ -160,6 +164,7 @@ export function displayTasks (task) {
         notesDiv.appendChild(notesButton);
 
         const noteIconAdd = document.createElement('img');
+        noteIconAdd.classList.toggle('icons');
         noteIconAdd.src = noteIcon;
         notesButton.appendChild(noteIconAdd);
 
@@ -176,6 +181,7 @@ export function displayTasks (task) {
         editTaskDiv.appendChild(editTaskButton);
 
         const noteIconEditAdd = document.createElement('img');
+        noteIconEditAdd.classList.toggle('icons');
         noteIconEditAdd.src = noteIconEdit;
         editTaskButton.appendChild(noteIconEditAdd);
 

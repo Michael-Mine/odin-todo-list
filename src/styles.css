@@ -74,8 +74,8 @@
   --primary-colour-aside: #DED4E6;
   --primary-colour-section: #EEE9F2;
   --secondary-colour-header: #9AC6C5;
-  --secondary-colour-aside: #9AC6C5;
-  --secondary-colour-section: #9AC6C5;
+  --secondary-colour-light: #c0dbdb;
+  --secondary-colour-lightest: #e5f0f0;
   --colour-white: #F9F9F9;
   --dialog-backdrop: hsl(250, 100%, 50%, 0.25);
 }
@@ -101,6 +101,10 @@ header {
 
 .header-logo {
     filter: invert(97%) sepia(6%) saturate(1974%) hue-rotate(141deg) brightness(90%) contrast(69%);
+}
+
+.icons {
+  filter: invert(23%) sepia(57%) saturate(1279%) hue-rotate(241deg) brightness(88%) contrast(104%);
 }
 
 .header-title {
@@ -137,6 +141,14 @@ button {
 .side-bar-list-buttons {
   width: 12.5rem;
   height: 2rem;
+}
+
+.side-bar-list-buttons:hover, .section-buttons-fixed:hover, .task-buttons:hover, #new-list-button-open:hover {
+  background-color: var(--secondary-colour-light);
+}
+
+#new-list-button-open, .section-buttons-fixed {
+  background-color: var(--secondary-colour-lightest); 
 }
 
 .section-buttons-fixed {
