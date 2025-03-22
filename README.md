@@ -11,10 +11,12 @@ However, I found these apps to be too complex for my needs and decided to create
 
 1. A priority setting on each item to see what to do first.
 2. For irregular reoccurring items, the ability to change to the next due date (such as washing dishes every 2-3 days) without removing and creating a new item.
-3. A checklist with ticked items that are not removed automatically, to see what was done (for recipes).
+3. A list with items that are not removed automatically, to see what was done (for recipes).
 
 **This app can only save data on user's computer that it was created on** (using localStorage API)
 
 Live Link: https://michael-mine.github.io/odin-todo-list
 
-Add Screenshot
+Screenshot: 
+
+![screenshot](./src/images/To%20Do%20List%20Screenshot.jpg)
