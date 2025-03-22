@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="icon" type="image/png" href="fa2c4162434194009462.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="0b2a21dc2560c78d98ee.svg" />
+    <link rel="shortcut icon" href="3b5d7632aa12bfc4cc99.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="130bd0bf4ffd08c91670.png" />
+    <link rel="manifest" href="5e97349c7150b142b662.webmanifest" />
+<script defer src="main.js"></script></head>
+<body>
+    <main>
+        <header>
+            <div class="header-title">
+                <img src="69cb22568c04ac01ac23.svg" alt="list logo" class="header-logo" height="50px" width="50px">
+                <h1>To Do List</h1>
+            </div>
+            <div>
+                <img src="0781145a2936f8c5b68e.png" alt="developer logo" height="50px" width="121px">
+            </div>
+            <div>
+                <a href="https://github.com/Michael-Mine">
+                    <img src="6fa18895f6e6c7772cab.svg" alt="github-mark" height="50px" width="50px">
+                </a> 
+            </div>
+        </header>
+        <aside class="side-bar">
+            <ul id="side-bar-lists">
+                <li class="list-keep">
+                    <button id="new-list-button-open" class="side-bar-list-buttons">
+                        <p>New List</p>
+                        <img src="49f131cd80357ee83d6d.svg" alt="new list icon" class="icons" height="30px" width="30px">
+                     </button>
+                </li>
+            </ul>
+            <dialog id="new-list-dialog">
+                <h2>Add New List</h2> 
+                <form>
+                    <p>
+                        <label for="new-list-input">Name:</label>
+                        <input type="text" id="new-list-input" name="new-list-name">
+                    </p>
+                </form>
+                <br>
+                <button id="new-list-button-add">Add</button>
+                <button id="new-list-button-cancel" formmethod="dialog">Cancel</button>
+            </dialog>
+        </aside>
+        <section class="tasks">
+            <ul id="tasks-list">
+                <li class="tasks-list-keep section-buttons-li">
+                    <button id="new-task-button-open" class="section-buttons-fixed">
+                        <p>New Task</p> 
+                        <img src="fdfbafe1668ce0fbff20.svg" alt="new task icon" class="icons" height="30px" width="30px">
+                    </button>
+                    <button id="edit-list-name-button" class="section-buttons-fixed">
+                        <p>Edit List Name</p>
+                        <img src="5a5956199bc751c13134.svg" alt="list edit icon" class="icons" height="30px" width="30px">
+                    </button>
+                    <button id="remove-list-button" class="section-buttons-fixed">
+                        <p>Remove List</p>
+                        <img src="4429070ef47590f44830.svg" alt="list remove icon" class="icons" height="30px" width="30px">
+                    </button>
+                </li>
+                <li class="tasks-list-keep">
+                    <h2 id="list-heading"></h2>
+                </li>
+            </ul>
+            <dialog id="new-task-dialog">
+                <h2>Add New Task</h2>
+                <form>
+                    <p>
+                        <label for="new-task-title">Title:</label>
+                        <input type="text" id="new-task-title" name="new-task-title">
+                    </p>
+                    <p>
+                        <label for="new-task-description">Description:</label>
+                        <input type="text" id="new-task-description" name="new-task-description">
+                    </p>
+                    <p>
+                        <label for="new-task-due">Task Due:</label>
+                        <input type="date" id="new-task-due" name="new-task-due">
+                    </p>
+                    <p>Priority: 
+                        <select name="new-task-priority" id="new-task-priority">
+                            <option value="A">A (highest)</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E (lowest)</option>
+                        </select>
+                    </p>
+                    <p>Notes:</p>
+                    <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+                </form>
+                <button id="new-task-button-add">Add Task</button>
+                <button id="new-task-button-cancel" formmethod="dialog">Cancel Task</button>
+            </dialog>
+            <dialog id="edit-list-name-dialog">
+                <h2>Edit List Name</h2>
+                <p id="edit-list-name-dialog-text"></p>
+                <form>
+                    <p>
+                        <label for="edit-list-name-input">new name:</label>
+                        <input type="text" id="edit-list-name-input" name="edit-list-name">
+                    </p>
+                </form>
+                <br>
+                <button id="edit-list-name-button-confirm">Confirm</button>
+                <button id="edit-list-name-button-cancel" formmethod="dialog">Cancel</button>
+            </dialog>
+            <dialog id="remove-list-dialog">
+                <h2>Remove Current List</h2>
+                <p id="remove-list-dialog-text"></p>
+                <button id="remove-list-dialog-button-confirm">Delete</button>
+                <button id="remove-list-dialog-button-cancel">Cancel</button>
+            </dialog>
+            <dialog id="notes-dialog">
+                <p id="notes-title"></p>
+                <p id="notes-p"></p>
+                <button id="notes-button-close">Close</button>
+            </dialog>
+            <dialog id="remove-task-dialog">
+                <h2>Remove Task</h2>
+                <p id="remove-task-dialog-text"></p>
+                <button id="remove-task-dialog-button-confirm">Delete</button>
+                <button id="remove-task-dialog-button-cancel">Cancel</button>
+            </dialog>
+            <dialog id="edit-task-dialog">
+                <h2>Edit Task</h2>
+                <form>
+                    <p>
+                        <label for="edit-task-title">Title:</label>
+                        <input type="text" id="edit-task-title" name="edit-task-title">
+                    </p>
+                    <p>
+                        <label for="edit-task-description">Description:</label>
+                        <input type="text" id="edit-task-description" name="edit-task-description">
+                    </p>
+                    <p>
+                        <label for="edit-task-due">Due:</label>
+                        <input type="date" id="edit-task-due" name="edit-task-due">
+                    </p>
+                    <p>Priority:
+                        <select name="edit-task-priority" id="edit-task-priority">
+                            <option value="A">A (highest)</option>
+                            <option value="B">B</option> 
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E (lowest)</option>
+                        </select>
+                    </p>
+                    <p>Notes:</p>
+                    <textarea name="notes-edit" id="notes-edit" cols="30" rows="10"></textarea>
+                </form>
+                <button id="edit-task-button-confirm">Confirm Changes</button>
+                <button id="edit-task-button-cancel" formmethod="dialog">Cancel</button>
+            </dialog>
+        </section>
+    </main>
+</body>
+</html>
