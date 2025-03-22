@@ -72,10 +72,10 @@
 :root {
   --primary-colour-header: #5B2A86;
   --primary-colour-aside: #DED4E6;
-  --primary-colour-main: #EEE9F2;
+  --primary-colour-section: #EEE9F2;
   --secondary-colour-header: #9AC6C5;
   --secondary-colour-aside: #9AC6C5;
-  --secondary-colour-main: #9AC6C5;
+  --secondary-colour-section: #9AC6C5;
   --colour-white: #F9F9F9;
   --dialog-backdrop: hsl(250, 100%, 50%, 0.25);
 }
@@ -99,14 +99,14 @@ header {
     color: var(--secondary-colour-header);
 }
 
+.header-logo {
+    filter: invert(97%) sepia(6%) saturate(1974%) hue-rotate(141deg) brightness(90%) contrast(69%);
+}
+
 .header-title {
   display: flex;
   gap: 10px;
 } 
-
-.header-logo {
-    filter: invert(97%) sepia(6%) saturate(1974%) hue-rotate(141deg) brightness(90%) contrast(69%);
-}
 
 aside {
     grid-area: side-bar;
@@ -123,24 +123,36 @@ li {
     margin-bottom: 15px;
 }
 
-.side-bar button {
-    width: 12.5rem;
-    text-align: left;
+button {
+  border: solid 1px var(--secondary-colour-header);
+  border-radius: 4px;
+  
 }
 
-.button-new {
-    width: 9.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4px;
+.side-bar-list-buttons, .section-buttons-fixed, .section-buttons-li, .task-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.side-bar-list-buttons {
+  width: 12.5rem;
+  height: 2rem;
+}
+
+.section-buttons-fixed {
+  width: 9.5rem;
+}
+
+.task-buttons {
+  width: 7rem;
+  height: 1.8rem;
 }
 
 section {
-    grid-area: main;
-    padding: 2px;
-    background-color: var(--primary-colour-main);
-    font-family: "Lato";
+  grid-area: main;
+  padding: 2px;
+  background-color: var(--primary-colour-section);
+  font-family: "Lato";
 }
 
 section h2 {
@@ -148,27 +160,18 @@ section h2 {
 }
 
 .tasks-container { 
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr repeat(2, 9rem);
-    grid-template-rows: repeat(2, 2rem);
-    background-color: var(--colour-white);
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr repeat(2, 9rem);
+  grid-template-rows: repeat(2, 2rem);
+  background-color: var(--colour-white);
+  border: solid 1px var(--secondary-colour-header);
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .tasks-container-done {
   background-color:var(--primary-colour-main);
-}
-
-.tasks-buttons-top {
-  display: flex;
-  justify-content: space-between;
-}
-
-.tasks-buttons-notes {
-  width: 7rem;
-  height: 2rem;
-  display: flex;
-  justify-content: space-between;
 }
 
 dialog {
@@ -185,9 +188,6 @@ dialog::backdrop {
   background-color: var(--dialog-backdrop);
 }
 
-button {
-  
-}
 
 /* left colour border for priority  */
 /* change button colour */

@@ -53,7 +53,7 @@ export function displayLists (listName) {
     listsNav.appendChild(listItem);
 
     const listItemButton = document.createElement('button');
-    listItemButton.classList.toggle('tasks-buttons-notes');
+    listItemButton.classList.toggle('side-bar-list-buttons');
     listItemButton.textContent = listName;
     listItem.appendChild(listItemButton);
 
@@ -106,7 +106,7 @@ export function displayTasks (task) {
         newContainerDiv.appendChild(doneDiv);
 
         const doneButton = document.createElement('button');
-        doneButton.classList.toggle('tasks-buttons-notes');
+        doneButton.classList.toggle('task-buttons');
         doneButton.textContent = task.done;
         doneDiv.appendChild(doneButton);
 
@@ -131,7 +131,7 @@ export function displayTasks (task) {
         newContainerDiv.appendChild(removeDiv);
 
         const removeButton = document.createElement('button');
-        removeButton.classList.toggle('tasks-buttons-notes');
+        removeButton.classList.toggle('task-buttons');
         removeButton.textContent = 'Remove';
         removeDiv.appendChild(removeButton);
 
@@ -155,7 +155,7 @@ export function displayTasks (task) {
         newContainerDiv.appendChild(notesDiv);
 
         const notesButton = document.createElement('button');
-        notesButton.classList.toggle('tasks-buttons-notes');
+        notesButton.classList.toggle('task-buttons');
         notesButton.textContent = 'Notes';
         notesDiv.appendChild(notesButton);
 
@@ -171,7 +171,7 @@ export function displayTasks (task) {
         newContainerDiv.appendChild(editTaskDiv);
 
         const editTaskButton = document.createElement('button');
-        editTaskButton.classList.toggle('tasks-buttons-notes');
+        editTaskButton.classList.toggle('task-buttons');
         editTaskButton.textContent = 'Edit Task';
         editTaskDiv.appendChild(editTaskButton);
 
