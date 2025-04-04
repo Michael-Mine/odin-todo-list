@@ -19,4 +19,4 @@ Live Link: https://michael-mine.github.io/odin-todo-list
 
 Screenshot: 
 
-![screenshot](./src/images/To%20Do%20List%20Screenshot.jpg)
+[screenshot](./src/images/To%20Do%20List%20Screenshot.jpg)
