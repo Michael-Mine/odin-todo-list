@@ -1,4 +1,5 @@
 # odin-todo-list
+
 To-do List Web App - JavaScript Project from The Odin Project
 
 Building from scratch, a To-Do List web app using JavaScript.
@@ -17,6 +18,6 @@ However, I found these apps to be too complex for my needs and decided to create
 
 Live Link: https://michael-mine.github.io/odin-todo-list
 
-Screenshot: 
+Screenshot:
 
 [screenshot](./src/images/To%20Do%20List%20Screenshot.jpg)
